@@ -1,0 +1,218 @@
+Create a modern, premium industrial website for **Scanflo Valves**, a division of **Scan Engineering**, specializing in high-performance **Knife Gate Valves** for demanding industrial applications.
+
+The website should look like a high-end engineering brand similar to Flowserve, Emerson, AVK, Bray, or DeZURIK — with clean layouts, smooth animations, strong typography, industrial visuals, and a modern B2B feel.
+
+STYLE & BRANDING:
+
+* Primary colors:
+
+  * Industrial Orange: #F58220
+  * Deep Industrial Blue: #1F2D6B
+  * Metallic Grey: #B8BCC2
+  * White backgrounds with subtle gradients
+* Theme:
+
+  * Premium engineering
+  * Industrial yet modern
+  * Clean corporate design
+  * Minimal but visually rich
+* Use large product renders and exploded technical illustrations.
+* Include subtle motion animations, parallax effects, hover transitions, and smooth scrolling.
+* Use modern fonts like Inter, Montserrat, or Poppins.
+* Add glossy reflections, metallic textures, and soft shadows for products.
+
+WEBSITE STRUCTURE:
+
+1. HERO SECTION
+
+* Fullscreen industrial hero banner.
+
+* Large 3D knife gate valve render on right side.
+
+* Left side:
+  Headline:
+  “Precision Engineered Knife Gate Valves”
+
+  Subheadline:
+  “Superior Quality • Reliable Performance • Built for Tough Applications”
+
+* CTA Buttons:
+
+  * Explore Products
+  * Download Catalogue
+
+* Background:
+  Industrial abstract patterns inspired by valve flow paths and fluid dynamics.
+
+2. ABOUT SCANFLO
+   Use brochure content:
+
+* Scanflo Valves is a wholly owned subsidiary of Scan Engineering based in Vapi, Gujarat.
+* Specialized in designing and manufacturing knife gate valves.
+* State-of-the-art machining facility.
+* In-house foundry.
+* Three decades of engineering experience.
+* Global customer presence.
+* Quality-focused manufacturing process.
+
+Display as:
+
+* Modern split layout
+* Industrial factory imagery
+* Animated statistics:
+
+  * 30+ Years Experience
+  * Global Presence
+  * Precision Manufacturing
+  * Quality Assurance
+
+3. PRODUCT CATEGORIES
+   Create modern product cards for:
+
+* Uni-Directional Knife Gate Valve (SA Series)
+* Bi-Directional Knife Gate Valve (SB Series)
+* Pneumatic Actuated Valve
+* Electric Actuated Valve
+* Hydraulic Actuated Valve
+* Chain Wheel Operated Valve
+* Gearbox Operated Valve
+
+Each card should have:
+
+* Product render
+* Short features
+* Hover animation
+* “View Details” button
+
+4. WHY SCANFLO
+   Create animated feature icons:
+
+* Precision Engineering
+* Superior Quality
+* In-house Manufacturing
+* Long Service Life
+* Strict Quality Checks
+* Global Standards
+* Custom Engineering Solutions
+
+5. TECHNICAL SECTION
+   Create visually impressive engineering sections:
+
+* Exploded valve view
+* Material construction table
+* Gland packing system visualization
+* Actuator options
+* Temperature ranges
+* Extension stand systems
+
+Use animated diagrams and interactive hotspots.
+
+6. INDUSTRIES SERVED
+   Show industries with modern icon cards:
+
+* Paper Industry
+* Pulp Industry
+* Wastewater
+* Mining
+* Chemical Plants
+* Power Plants
+* Sugar Industry
+* Slurry Applications
+
+7. MANUFACTURING & QUALITY
+   Create a premium industrial showcase:
+
+* CNC machining visuals
+* Foundry visuals
+* Inspection process
+* Assembly line
+* Quality testing
+
+Include timeline animations and process flow graphics.
+
+8. DOWNLOAD CENTER
+   Include:
+
+* Product Catalog PDF
+* Technical Datasheets
+* Installation Manuals
+* CAD Drawings
+* Certifications
+
+9. CONTACT SECTION
+   Include:
+
+* Company details
+* Inquiry form
+* WhatsApp CTA
+* Google Maps embed
+* Export inquiries section
+
+10. FOOTER
+    Include:
+
+* Quick links
+* Social media
+* Product categories
+* Copyright
+* Scan Engineering branding
+
+ADVANCED WEBSITE FEATURES:
+
+* Fully responsive mobile-first design
+* Dark/light subtle industrial theme
+* Smooth page transitions
+* Scroll-triggered animations
+* Interactive product viewer
+* Floating inquiry button
+* Sticky navigation
+* Animated counters
+* SEO optimized structure
+* Fast loading optimized assets
+
+TECH STACK:
+
+* React + Tailwind CSS
+* Framer Motion animations
+* Three.js for 3D product presentation
+* GSAP for premium scroll animations
+* Responsive design
+* Component-based architecture
+
+SPECIAL VISUAL DIRECTIONS:
+
+* Use realistic metallic textures.
+* Use orange accent lighting effects.
+* Add industrial abstract backgrounds.
+* Add valve cut-section graphics.
+* Add engineering blueprint overlays.
+* Create premium product showcase sections similar to Apple/Tesla product pages but for industrial valves.
+
+CONTENT TONE:
+
+* Professional
+* Technical
+* Trustworthy
+* Premium engineering company
+* Global industrial supplier
+
+SEO KEYWORDS:
+
+* Knife Gate Valve Manufacturer
+* Industrial Valves India
+* Scanflo Valves
+* Pneumatic Knife Gate Valve
+* Bi-directional Knife Gate Valve
+* Slurry Valve Manufacturer
+* Wafer Type Knife Gate Valve
+* Industrial Flow Control Solutions
+
+Generate:
+
+* Full multi-page website
+* Modern UI components
+* Product detail pages
+* Responsive navigation
+* Dummy industrial product renders
+* Premium industrial visual aesthetics
+* Production-ready frontend structure.
