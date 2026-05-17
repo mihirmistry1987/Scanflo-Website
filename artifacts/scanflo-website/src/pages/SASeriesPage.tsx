@@ -62,7 +62,7 @@ export default function SASeriesPage() {
             className="bg-muted/30 border border-border p-8 flex items-center justify-center"
           >
             <img
-              src="/images/sa-series-product.png"
+              src="/images/uni-directional-valve.jpg"
               alt="SA Series Uni-Directional Knife Gate Valve"
               className="w-full max-w-md object-contain"
             />
