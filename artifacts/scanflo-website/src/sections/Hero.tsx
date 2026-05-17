@@ -126,13 +126,6 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className={`max-w-3xl space-y-6 ${slides[current].lightBg ? "text-gray-900" : "text-white"}`}
             >
-              <div className="inline-flex items-center gap-2 mb-2">
-                <span className="w-10 h-0.5 bg-primary" />
-                <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
-                  Scanflo Valves
-                </span>
-              </div>
-
               <h1 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
                 {slides[current].headline}
                 <br />
