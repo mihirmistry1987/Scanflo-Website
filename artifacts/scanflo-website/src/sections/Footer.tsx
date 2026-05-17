@@ -47,9 +47,10 @@ export default function Footer() {
             <h4 className="font-bold mb-6 text-lg tracking-wide uppercase">Contact</h4>
             <ul className="space-y-3 text-sm text-accent/80">
               <li>Scanflo Valves</li>
-              <li>Vapi, Gujarat, India</li>
-              <li className="pt-2">info@scanflo.com</li>
-              <li>+91-260-2400000</li>
+              <li>Plot no. 763/764, 40 Shed Area,</li>
+              <li>GIDC Vapi, Gujarat - 396195, India</li>
+              <li className="pt-2">info@scanengg.com</li>
+              <li>+91 9825097587</li>
             </ul>
           </div>
         </div>

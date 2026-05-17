@@ -61,21 +61,21 @@ export default function Contact() {
                 <MapPin className="w-6 h-6 text-primary mr-4 mt-1" />
                 <div>
                   <h4 className="font-bold text-secondary">Headquarters & Manufacturing</h4>
-                  <p className="text-muted-foreground text-sm mt-1">Scanflo Valves (Div. of Scan Engineering)<br/>Vapi, Gujarat, India</p>
+                  <p className="text-muted-foreground text-sm mt-1">Scan Engineering<br/>Plot no. 763/764, 40 Shed Area,<br/>GIDC Vapi, Gujarat - 396195, India</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <Phone className="w-6 h-6 text-primary mr-4 mt-1" />
                 <div>
                   <h4 className="font-bold text-secondary">Phone</h4>
-                  <p className="text-muted-foreground text-sm mt-1">+91-260-2400000</p>
+                  <p className="text-muted-foreground text-sm mt-1">+91 9825097587</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <Mail className="w-6 h-6 text-primary mr-4 mt-1" />
                 <div>
                   <h4 className="font-bold text-secondary">Email</h4>
-                  <p className="text-muted-foreground text-sm mt-1">info@scanflo.com</p>
+                  <p className="text-muted-foreground text-sm mt-1">info@scanengg.com</p>
                 </div>
               </div>
             </div>
