@@ -195,7 +195,7 @@ export default function CompanyProfile() {
                 <div>
                   <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Vision</h3>
                   <p className="text-white/70 text-sm leading-relaxed">
-                    To be the globally preferred choice in knife gate valve solutions — setting the industry standard for quality, durability, and innovation.
+                    SCANFLO Valves envisions global leadership in innovative valve solutions. We are dedicated to setting the industry standard for quality and durability — backed by a streamlined production process, a team of experts, and top-class materials. We aspire to be the globally preferred choice, evident through repeat orders and customer acclaim.
                   </p>
                 </div>
               </motion.div>
@@ -213,7 +213,7 @@ export default function CompanyProfile() {
                 <div>
                   <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Mission</h3>
                   <p className="text-white/70 text-sm leading-relaxed">
-                    To consistently deliver high-quality, tailored knife gate valve solutions for the most challenging applications — with precision, speed, and reliability.
+                    At SCANFLO Valves we specialise in crafting resilient knife gate valves for the most challenging applications. Our unwavering mission is to consistently deliver high-quality products and tailored valve solutions — meeting every customer's process requirement with precision, speed, and reliability.
                   </p>
                 </div>
               </motion.div>
