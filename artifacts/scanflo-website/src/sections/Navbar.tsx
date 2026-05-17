@@ -1,26 +1,47 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import scanfloLogo from "@assets/Scanflo_Logo_1778997253423.png";
 
+const productDropdown = [
+  { label: "Uni-Directional Valves", href: "/products/sa-series" },
+  { label: "Bi-Directional Valves", href: "/products/sb-series" },
+  { label: "Through Going Long Plate Valves", href: "/products/long-plate" },
+  { label: "Double Knife Gate Valve", href: "/products/double-knife" },
+  { label: "Mining Valves", href: "/products/mining" },
+  { label: "Specially Engineered Valves", href: "/products/special" },
+];
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Products", href: "/products" },
+  { label: "Products", href: "/products", dropdown: productDropdown },
   { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [location] = useLocation();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMouseEnter = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 shadow-xl shadow-black/40" data-testid="navbar">
 
-      {/* Top utility bar — orange */}
+      {/* Top utility bar */}
       <div className="bg-[#F58220] hidden md:block">
         <div className="container mx-auto px-4 md:px-8 flex items-center justify-between h-9">
           <span className="text-white/90 text-xs font-medium tracking-wide">
@@ -39,10 +60,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main nav bar — split panel */}
+      {/* Main nav bar */}
       <div className="flex items-stretch">
 
-        {/* Logo container — white panel */}
+        {/* Logo panel */}
         <Link
           href="/"
           className="flex items-center justify-center bg-black px-6 md:px-10 py-3 shrink-0 cursor-pointer border-r-4 border-[#F58220]"
@@ -56,23 +77,73 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Nav links container — black panel */}
+        {/* Nav links */}
         <div className="flex-1 bg-black flex items-center justify-between px-6 md:px-10 py-3">
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-semibold uppercase tracking-widest transition-colors ${
-                  location === link.href
-                    ? "text-[#F58220]"
-                    : "text-white/80 hover:text-[#F58220]"
-                }`}
-                data-testid={`link-${link.label.toLowerCase()}`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.dropdown ? (
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button
+                    className={`flex items-center gap-1 text-sm font-semibold uppercase tracking-widest transition-colors ${
+                      location.startsWith("/products")
+                        ? "text-[#F58220]"
+                        : "text-white/80 hover:text-[#F58220]"
+                    }`}
+                    data-testid="link-products"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute top-full left-0 mt-2 w-64 bg-black border border-white/10 shadow-2xl z-50"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <div className="h-0.5 w-full bg-[#F58220]" />
+                        {link.dropdown.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-5 py-3 text-sm text-white/80 hover:text-[#F58220] hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 font-medium"
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-semibold uppercase tracking-widest transition-colors ${
+                    location === link.href
+                      ? "text-[#F58220]"
+                      : "text-white/80 hover:text-[#F58220]"
+                  }`}
+                  data-testid={`link-${link.label.toLowerCase().replace(" ", "-")}`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </nav>
 
           <div className="hidden md:flex items-center gap-4 ml-auto">
@@ -104,20 +175,55 @@ export default function Navbar() {
             className="bg-black border-t border-[#F58220]/40 overflow-hidden"
           >
             <div className="flex flex-col px-6 py-4 gap-1">
-              {/* Orange utility line on mobile */}
               <div className="text-[#F58220] text-xs font-medium mb-3 pb-3 border-b border-white/10">
                 A Division of Scan Engineering
               </div>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-base font-semibold text-white/80 hover:text-[#F58220] transition-colors py-2.5 border-b border-white/5 uppercase tracking-wider"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.dropdown ? (
+                  <div key={link.href}>
+                    <button
+                      className="w-full flex items-center justify-between text-base font-semibold text-white/80 hover:text-[#F58220] transition-colors py-2.5 border-b border-white/5 uppercase tracking-wider"
+                      onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-200 ${mobileProductsOpen ? "rotate-180 text-[#F58220]" : ""}`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {mobileProductsOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="overflow-hidden"
+                        >
+                          {link.dropdown.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block pl-4 py-2 text-sm text-white/60 hover:text-[#F58220] transition-colors border-b border-white/5"
+                              onClick={() => { setIsMobileMenuOpen(false); setMobileProductsOpen(false); }}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-base font-semibold text-white/80 hover:text-[#F58220] transition-colors py-2.5 border-b border-white/5 uppercase tracking-wider"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
               <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="mt-3">
                 <Button className="bg-[#F58220] hover:bg-[#F58220]/90 text-white w-full rounded-none font-bold uppercase tracking-wider">
                   Get a Quote
