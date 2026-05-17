@@ -1,74 +1,196 @@
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+
+const slides = [
+  {
+    id: 1,
+    image: "/images/hero-slide-1.png",
+    headline: "Precision Engineered",
+    highlight: "Knife Gate Valves",
+    subheadline: "Superior Quality • Reliable Performance • Built for Tough Applications",
+    cta: { label: "Explore Products", href: "/products" },
+  },
+  {
+    id: 2,
+    image: "/images/hero-slide-2.png",
+    headline: "State-of-the-Art",
+    highlight: "Manufacturing Facility",
+    subheadline: "In-House Foundry • CNC Precision Machining • Three Decades of Engineering",
+    cta: { label: "About Scanflo", href: "/about" },
+  },
+  {
+    id: 3,
+    image: "/images/hero-slide-3.png",
+    headline: "Trusted Across",
+    highlight: "Global Industries",
+    subheadline: "Mining • Power Plants • Wastewater • Chemical • Pulp & Paper",
+    cta: { label: "Industries We Serve", href: "/industries" },
+  },
+];
+
+const SLIDE_DURATION = 5000;
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setCurrent((prev) => (prev + 1) % slides.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setDirection(-1);
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  }, []);
+
+  const goTo = useCallback((index: number) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
+  }, [current]);
+
+  useEffect(() => {
+    const timer = setTimeout(next, SLIDE_DURATION);
+    return () => clearTimeout(timer);
+  }, [current, next]);
+
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center bg-secondary overflow-hidden pt-20" data-testid="section-hero">
-      {/* Background SVG Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="flow" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M0,50 Q25,0 50,50 T100,50" fill="none" stroke="#F58220" strokeWidth="1" className="animate-pulse" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#flow)" />
-        </svg>
+    <section className="relative w-full h-screen overflow-hidden" data-testid="section-hero">
+      <AnimatePresence initial={false} custom={direction} mode="sync">
+        <motion.div
+          key={slides[current].id}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="absolute inset-0"
+          data-testid={`slide-${slides[current].id}`}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${slides[current].image})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container mx-auto px-4 md:px-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`text-${slides[current].id}`}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-3xl text-white space-y-6"
+            >
+              <div className="inline-flex items-center gap-2 mb-2">
+                <span className="w-10 h-0.5 bg-primary" />
+                <span className="text-primary font-semibold text-sm uppercase tracking-[0.2em]">
+                  Scanflo Valves
+                </span>
+              </div>
+
+              <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+                {slides[current].headline}
+                <br />
+                <span className="text-primary">{slides[current].highlight}</span>
+              </h1>
+
+              <p className="text-lg md:text-xl text-white/75 font-light tracking-wide max-w-xl">
+                {slides[current].subheadline}
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link href={slides[current].cta.href} data-testid="btn-slide-cta">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-white rounded-none h-14 px-8 text-base font-bold uppercase tracking-wider"
+                  >
+                    {slides[current].cta.label}
+                  </Button>
+                </Link>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/70 text-white hover:bg-white hover:text-black rounded-none h-14 px-8 text-base font-bold uppercase tracking-wider"
+                  data-testid="btn-download-catalog"
+                >
+                  Download Catalogue
+                </Button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white space-y-6"
-          >
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
-              Precision Engineered <br />
-              <span className="text-primary">Knife Gate Valves</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-accent font-light tracking-wide">
-              Superior Quality • Reliable Performance • Built for Tough Applications
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="/products" data-testid="btn-explore-products">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-none h-14 px-8 text-lg font-bold">
-                  Explore Products
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="border-white text-secondary hover:bg-white rounded-none h-14 px-8 text-lg font-bold" data-testid="btn-download-catalog">
-                Download Catalogue
-              </Button>
-            </div>
-          </motion.div>
+      <button
+        onClick={prev}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-white/30 bg-black/30 hover:bg-primary hover:border-primary text-white transition-all duration-200"
+        data-testid="btn-prev-slide"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-white/30 bg-black/30 hover:bg-primary hover:border-primary text-white transition-all duration-200"
+        data-testid="btn-next-slide"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={20} />
+      </button>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative hidden lg:block"
-          >
-            <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full" />
-            <img
-              src="/images/hero-valve.png"
-              alt="Scanflo Knife Gate Valve"
-              className="relative z-10 w-full max-w-lg mx-auto drop-shadow-2xl"
-              data-testid="img-hero-product"
-            />
-          </motion.div>
-        </div>
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+        {slides.map((slide, i) => (
+          <button
+            key={slide.id}
+            onClick={() => goTo(i)}
+            data-testid={`dot-slide-${i}`}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`transition-all duration-300 rounded-none ${
+              i === current
+                ? "bg-primary w-8 h-1"
+                : "bg-white/40 hover:bg-white/70 w-4 h-1"
+            }`}
+          />
+        ))}
+      </div>
+
+      <div className="absolute bottom-8 right-4 md:right-8 z-20 text-white/40 text-sm font-mono tracking-widest">
+        {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
       </div>
 
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/40"
       >
-        <ChevronDown size={32} />
+        <ChevronDown size={28} />
       </motion.div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/40 z-20">
+        <motion.div
+          key={current}
+          className="h-full bg-primary"
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
+        />
+      </div>
     </section>
   );
 }

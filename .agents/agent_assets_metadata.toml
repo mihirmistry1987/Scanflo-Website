@@ -30,3 +30,21 @@ id = "7ola3qXEM1AEq2aB31yUv"
 uri = "file://artifacts/scanflo-website/public/images/product-pneumatic.png"
 type = "image"
 title = "Pneumatic Valve Render"
+
+[[generated]]
+id = "jo9OXb7uvoL6o1-SJZ7K9"
+uri = "file://artifacts/scanflo-website/public/images/hero-slide-1.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "7gO_0wOk0TcL7sToID2Qi"
+uri = "file://artifacts/scanflo-website/public/images/hero-slide-2.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "5Novc7T1NEEz9oe6lTo3x"
+uri = "file://artifacts/scanflo-website/public/images/hero-slide-3.png"
+type = "image"
+title = "generated_image"

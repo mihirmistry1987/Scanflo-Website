@@ -28,18 +28,22 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || location !== "/" ? "bg-secondary shadow-lg py-4" : "bg-transparent py-6"
+        isScrolled || location !== "/"
+          ? "bg-black/95 shadow-lg shadow-black/50 py-3 border-b border-white/10"
+          : "bg-black/40 backdrop-blur-sm py-5"
       }`}
       data-testid="navbar"
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center cursor-pointer" data-testid="link-home">
-            <img
-              src={scanfloLogo}
-              alt="Scanflo Valves"
-              className="h-10 md:h-12 w-auto object-contain"
-            />
+            <div className="bg-white rounded px-3 py-1.5">
+              <img
+                src={scanfloLogo}
+                alt="Scanflo Valves"
+                className="h-8 md:h-10 w-auto object-contain"
+              />
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -76,7 +80,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-secondary border-t border-white/10"
+            className="md:hidden bg-black border-t border-white/10"
           >
             <div className="flex flex-col p-4 space-y-4">
               {navLinks.map((link) => (
