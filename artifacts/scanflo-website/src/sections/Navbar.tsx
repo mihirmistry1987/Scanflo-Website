@@ -14,6 +14,12 @@ const productDropdown = [
   { label: "Specially Engineered Valves", href: "/products/special" },
 ];
 
+const aboutDropdown = [
+  { label: "Company Profile", href: "/about/company-profile" },
+  { label: "Why Choose Scanflo", href: "/about/why-scanflo" },
+  { label: "Certifications", href: "/about/certifications" },
+];
+
 const designDropdown = [
   { label: "Design & Construction", href: "/design/construction" },
   { label: "Gland Packing", href: "/design/gland-packing" },
@@ -22,7 +28,7 @@ const designDropdown = [
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about", dropdown: aboutDropdown },
   { label: "Products", href: "/products", dropdown: productDropdown },
   { label: "Design", href: "/design", dropdown: designDropdown },
   { label: "Industries", href: "/industries" },
