@@ -34,7 +34,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/images/hero-slide-3.png",
+    image: "/images/hero-slide-3.jpg",
     fit: "cover" as const,
     lightBg: false,
     bgOverride: null,
