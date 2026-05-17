@@ -15,7 +15,7 @@ const features = [
   {
     icon: Cog,
     title: "Designing",
-    desc: "Our designing strength is the heartbeat of our success, driven by a team of skilled engineers and designers. Meticulously crafting valves that exceed industry standards, we blend innovation with functionality. From CAD models to the final product, our commitment to precision and efficiency ensures that every valve is a testament to our designing prowess.",
+    desc: "Driven by skilled engineers, we craft valves that exceed industry standards — blending innovation with functionality from CAD models to the final product.",
   },
   {
     icon: Zap,
