@@ -12,6 +12,7 @@ import SASeriesPage from "@/pages/SASeriesPage";
 import Industries from "@/pages/Industries";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import DesignConstruction from "@/pages/DesignConstruction";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ function Router() {
         <Route path="/industries" component={Industries} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/design/construction" component={DesignConstruction} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>

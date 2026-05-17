@@ -3,7 +3,6 @@ import Hero from "@/sections/Hero";
 import About from "@/sections/About";
 import Products from "@/sections/Products";
 import WhyScanflo from "@/sections/WhyScanflo";
-import Technical from "@/sections/Technical";
 import Industries from "@/sections/Industries";
 import Manufacturing from "@/sections/Manufacturing";
 import Contact from "@/sections/Contact";
@@ -25,7 +24,6 @@ export default function Home() {
         <About />
         <Products />
         <WhyScanflo />
-        <Technical />
         <Industries />
         <Manufacturing />
         <Contact />
