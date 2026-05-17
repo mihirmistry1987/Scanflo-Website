@@ -9,6 +9,13 @@ const slides = [
     id: 1,
     image: "/images/hero-slide-1.png",
     fit: "contain" as const,
+    lightBg: true,
+    bgOverride: {
+      backgroundImage: `url(/images/hero-slide-1.png), linear-gradient(to bottom, #ffffff 27%, #F58220 27%, #F58220 73%, #ffffff 73%)`,
+      backgroundSize: "contain, cover",
+      backgroundPosition: "right center, center",
+      backgroundRepeat: "no-repeat, no-repeat",
+    },
     headline: "Precision Engineered",
     highlight: "Knife Gate Valves",
     subheadline: "Superior Quality • Reliable Performance • Built for Tough Applications",
@@ -18,6 +25,8 @@ const slides = [
     id: 2,
     image: "/images/hero-slide-2.png",
     fit: "cover" as const,
+    lightBg: false,
+    bgOverride: null,
     headline: "State-of-the-Art",
     highlight: "Manufacturing Facility",
     subheadline: "In-House Foundry • CNC Precision Machining • Three Decades of Engineering",
@@ -27,6 +36,8 @@ const slides = [
     id: 3,
     image: "/images/hero-slide-3.png",
     fit: "cover" as const,
+    lightBg: false,
+    bgOverride: null,
     headline: "Trusted Across",
     highlight: "Global Industries",
     subheadline: "Mining • Power Plants • Wastewater • Chemical • Pulp & Paper",
@@ -81,14 +92,26 @@ export default function Hero() {
           data-testid={`slide-${slides[current].id}`}
         >
           <div
-            className="absolute inset-0 bg-center bg-no-repeat bg-black"
-            style={{
-              backgroundImage: `url(${slides[current].image})`,
-              backgroundSize: slides[current].fit,
-            }}
+            className="absolute inset-0"
+            style={
+              slides[current].bgOverride ?? {
+                backgroundImage: `url(${slides[current].image})`,
+                backgroundSize: slides[current].fit,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundColor: "#000",
+              }
+            }
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+          {!slides[current].lightBg && (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+            </>
+          )}
+          {slides[current].lightBg && (
+            <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent" />
+          )}
         </motion.div>
       </AnimatePresence>
 
@@ -101,7 +124,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-3xl text-white space-y-6"
+              className={`max-w-3xl space-y-6 ${slides[current].lightBg ? "text-gray-900" : "text-white"}`}
             >
               <div className="inline-flex items-center gap-2 mb-2">
                 <span className="w-10 h-0.5 bg-primary" />
@@ -116,7 +139,7 @@ export default function Hero() {
                 <span className="text-primary">{slides[current].highlight}</span>
               </h1>
 
-              <p className="text-base md:text-lg text-white/75 font-light tracking-wide max-w-xl">
+              <p className={`text-base md:text-lg font-light tracking-wide max-w-xl ${slides[current].lightBg ? "text-gray-700" : "text-white/75"}`}>
                 {slides[current].subheadline}
               </p>
 
@@ -132,7 +155,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/70 text-white hover:bg-white hover:text-black rounded-none h-14 px-8 text-base font-bold uppercase tracking-wider"
+                  className={`rounded-none h-14 px-8 text-base font-bold uppercase tracking-wider ${slides[current].lightBg ? "border-gray-800 text-gray-900 hover:bg-gray-900 hover:text-white" : "border-white/70 text-white hover:bg-white hover:text-black"}`}
                   data-testid="btn-download-catalog"
                 >
                   Download Catalogue
