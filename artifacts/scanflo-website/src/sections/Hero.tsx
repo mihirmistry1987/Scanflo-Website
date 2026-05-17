@@ -9,7 +9,7 @@ const slides = [
     id: 1,
     image: "/images/hero-slide-1.png",
     fit: "contain" as const,
-    lightBg: false,
+    lightBg: true,
     bgOverride: {
       backgroundImage: `url(/images/hero-slide-1.png), linear-gradient(to bottom, #ffffff 27%, #F58220 27%, #F58220 73%, #ffffff 73%)`,
       backgroundSize: "contain, cover",
@@ -110,7 +110,7 @@ export default function Hero() {
             </>
           )}
           {slides[current].lightBg && (
-            <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
           )}
         </motion.div>
       </AnimatePresence>
