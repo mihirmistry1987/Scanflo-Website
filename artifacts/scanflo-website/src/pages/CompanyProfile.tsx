@@ -179,49 +179,43 @@ export default function CompanyProfile() {
         </section>
 
         {/* Vision & Mission */}
-        <section className="py-20 bg-secondary text-white">
+        <section className="py-14 bg-secondary text-white">
           <div className="container mx-auto px-4 md:px-8">
-            <div className="text-center mb-14">
-              <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">Our Purpose</p>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight">Vision &amp; Mission</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="border border-white/10 p-10 relative overflow-hidden"
+                transition={{ duration: 0.4 }}
+                className="flex items-start gap-5 px-6 py-8 md:py-0 md:pr-12"
               >
-                <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="bg-primary/20 p-3">
-                    <Eye className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-black uppercase tracking-wide">Vision</h3>
+                <div className="bg-primary/20 p-3 shrink-0 mt-1">
+                  <Eye className="w-5 h-5 text-primary" />
                 </div>
-                <p className="text-white/75 leading-relaxed">
-                  SCANFLO Valves envisions global leadership in innovative valve solutions. Specialising in knife gate valves, we are dedicated to setting the industry standard for quality and durability. Our streamlined production process, coupled with a team of experts, guarantees top-class materials and manufacturing. We aspire to be the globally preferred choice, evident through repeat orders and customer acclaim.
-                </p>
+                <div>
+                  <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Vision</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    To be the globally preferred choice in knife gate valve solutions — setting the industry standard for quality, durability, and innovation.
+                  </p>
+                </div>
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="border border-white/10 p-10 relative overflow-hidden"
+                transition={{ duration: 0.4, delay: 0.12 }}
+                className="flex items-start gap-5 px-6 py-8 md:py-0 md:pl-12"
               >
-                <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="bg-primary/20 p-3">
-                    <Target className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-black uppercase tracking-wide">Mission</h3>
+                <div className="bg-primary/20 p-3 shrink-0 mt-1">
+                  <Target className="w-5 h-5 text-primary" />
                 </div>
-                <p className="text-white/75 leading-relaxed">
-                  At SCANFLO Valves we specialise in crafting resilient knife gate valves for the most challenging applications. Our unwavering mission is to consistently deliver high-quality products and tailored valve solutions — meeting every customer's process requirement with precision, speed, and reliability.
-                </p>
+                <div>
+                  <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Mission</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    To consistently deliver high-quality, tailored knife gate valve solutions for the most challenging applications — with precision, speed, and reliability.
+                  </p>
+                </div>
               </motion.div>
             </div>
           </div>
