@@ -39,7 +39,7 @@ export default function SASeriesPage() {
       <Navbar />
 
       {/* Page header */}
-      <div className="bg-white border-b-4 border-primary py-12">
+      <div className="bg-secondary text-white py-12">
         <div className="container mx-auto px-4 md:px-8">
           <Link href="/products" className="inline-flex items-center text-white/60 hover:text-primary font-medium mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to Products
@@ -47,7 +47,7 @@ export default function SASeriesPage() {
           <div className="flex items-center gap-4 mb-3">
             <span className="bg-primary text-white text-sm font-bold px-4 py-1 uppercase tracking-widest">SA Series</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-secondary">Uni-Directional Knife Gate Valve</h1>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight">Uni-Directional Knife Gate Valve</h1>
         </div>
       </div>
 
@@ -164,7 +164,7 @@ export default function SASeriesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-primary text-white p-12 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="bg-secondary text-white p-12 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div>
             <h3 className="text-2xl font-black mb-2">Need a custom size or material?</h3>

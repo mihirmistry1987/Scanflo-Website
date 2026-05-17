@@ -75,7 +75,7 @@ export default function DesignConstruction() {
       <Navbar />
 
       {/* Page header */}
-      <div className="bg-white border-b-4 border-primary py-14">
+      <div className="bg-secondary text-white py-14">
         <div className="container mx-auto px-4 md:px-8">
           <Link href="/design" className="inline-flex items-center text-white/60 hover:text-primary font-medium mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to Design
@@ -83,8 +83,8 @@ export default function DesignConstruction() {
           <div className="flex items-center gap-4 mb-3">
             <span className="bg-primary text-white text-sm font-bold px-4 py-1 uppercase tracking-widest">Design</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-secondary">Design &amp; Construction</h1>
-          <p className="text-muted-foreground mt-3 text-lg max-w-xl">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight">Design &amp; Construction</h1>
+          <p className="text-white/60 mt-3 text-lg max-w-xl">
             A detailed look at the anatomy, materials, and engineering behind every Scanflo Knife Gate Valve.
           </p>
         </div>
@@ -222,7 +222,7 @@ export default function DesignConstruction() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-primary text-white p-12 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="bg-secondary text-white p-12 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div>
             <h3 className="text-2xl font-black mb-2">Need a custom specification?</h3>
