@@ -48,3 +48,9 @@ id = "5Novc7T1NEEz9oe6lTo3x"
 uri = "file://artifacts/scanflo-website/public/images/hero-slide-3.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "2GQMn37H1DAR9nYpb_vlG"
+uri = "file://artifacts/scanflo-website/public/images/sa-series-product.png"
+type = "image"
+title = "uni-directional knife gate valve"
