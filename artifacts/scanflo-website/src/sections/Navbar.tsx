@@ -14,29 +14,35 @@ const productDropdown = [
   { label: "Specially Engineered Valves", href: "/products/special" },
 ];
 
+const designDropdown = [
+  { label: "Design & Construction", href: "/design/construction" },
+  { label: "Gland Packing", href: "/design/gland-packing" },
+  { label: "Actuator Options", href: "/design/actuator-options" },
+];
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Products", href: "/products", dropdown: productDropdown },
-  { label: "Design", href: "/design" },
+  { label: "Design", href: "/design", dropdown: designDropdown },
   { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileOpenKey, setMobileOpenKey] = useState<string | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [location] = useLocation();
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (key: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setDropdownOpen(true);
+    setActiveDropdown(key);
   };
 
   const handleMouseLeave = () => {
-    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
   };
 
   return (
@@ -86,33 +92,33 @@ export default function Navbar() {
                 <div
                   key={link.href}
                   className="relative"
-                  onMouseEnter={handleMouseEnter}
+                  onMouseEnter={() => handleMouseEnter(link.href)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
                     className={`flex items-center gap-1 text-sm font-semibold uppercase tracking-widest transition-colors ${
-                      location.startsWith("/products")
+                      location.startsWith(link.href) && link.href !== "/"
                         ? "text-[#F58220]"
                         : "text-white/80 hover:text-[#F58220]"
                     }`}
-                    data-testid="link-products"
+                    data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                   >
                     {link.label}
                     <ChevronDown
                       size={14}
-                      className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                      className={`transition-transform duration-200 ${activeDropdown === link.href ? "rotate-180" : ""}`}
                     />
                   </button>
 
                   <AnimatePresence>
-                    {dropdownOpen && (
+                    {activeDropdown === link.href && (
                       <motion.div
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-2 w-64 bg-black border border-white/10 shadow-2xl z-50"
-                        onMouseEnter={handleMouseEnter}
+                        className="absolute top-full left-0 mt-2 w-60 bg-black border border-white/10 shadow-2xl z-50"
+                        onMouseEnter={() => handleMouseEnter(link.href)}
                         onMouseLeave={handleMouseLeave}
                       >
                         <div className="h-0.5 w-full bg-[#F58220]" />
@@ -121,7 +127,7 @@ export default function Navbar() {
                             key={item.href}
                             href={item.href}
                             className="block px-5 py-3 text-sm text-white/80 hover:text-[#F58220] hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 font-medium"
-                            onClick={() => setDropdownOpen(false)}
+                            onClick={() => setActiveDropdown(null)}
                           >
                             {item.label}
                           </Link>
@@ -139,7 +145,7 @@ export default function Navbar() {
                       ? "text-[#F58220]"
                       : "text-white/80 hover:text-[#F58220]"
                   }`}
-                  data-testid={`link-${link.label.toLowerCase().replace(" ", "-")}`}
+                  data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                 >
                   {link.label}
                 </Link>
@@ -184,16 +190,16 @@ export default function Navbar() {
                   <div key={link.href}>
                     <button
                       className="w-full flex items-center justify-between text-base font-semibold text-white/80 hover:text-[#F58220] transition-colors py-2.5 border-b border-white/5 uppercase tracking-wider"
-                      onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                      onClick={() => setMobileOpenKey(mobileOpenKey === link.href ? null : link.href)}
                     >
                       {link.label}
                       <ChevronDown
                         size={16}
-                        className={`transition-transform duration-200 ${mobileProductsOpen ? "rotate-180 text-[#F58220]" : ""}`}
+                        className={`transition-transform duration-200 ${mobileOpenKey === link.href ? "rotate-180 text-[#F58220]" : ""}`}
                       />
                     </button>
                     <AnimatePresence>
-                      {mobileProductsOpen && (
+                      {mobileOpenKey === link.href && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
@@ -205,7 +211,7 @@ export default function Navbar() {
                               key={item.href}
                               href={item.href}
                               className="block pl-4 py-2 text-sm text-white/60 hover:text-[#F58220] transition-colors border-b border-white/5"
-                              onClick={() => { setIsMobileMenuOpen(false); setMobileProductsOpen(false); }}
+                              onClick={() => { setIsMobileMenuOpen(false); setMobileOpenKey(null); }}
                             >
                               {item.label}
                             </Link>
