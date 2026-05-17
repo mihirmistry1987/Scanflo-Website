@@ -15,7 +15,7 @@ export const products: Product[] = [
     series: "SA Series",
     description: "High-performance unidirectional flow knife gate valve with resilient seat, designed to ANSI/DIN standards.",
     features: ["Unidirectional Flow", "Resilient Seat", "ANSI/DIN Standards"],
-    image: "/images/product-sa-series.png",
+    image: "/images/uni-directional-valve.jpg",
     category: "Manual"
   },
   {
