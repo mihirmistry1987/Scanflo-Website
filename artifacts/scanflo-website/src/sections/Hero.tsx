@@ -8,7 +8,7 @@ const slides = [
   {
     id: 1,
     image: "/images/hero-slide-1.png",
-    fit: "cover" as const,
+    fit: "contain" as const,
     headline: "Precision Engineered",
     highlight: "Knife Gate Valves",
     subheadline: "Superior Quality • Reliable Performance • Built for Tough Applications",
