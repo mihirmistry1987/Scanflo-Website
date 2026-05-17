@@ -5,12 +5,6 @@ import Navbar from "@/sections/Navbar";
 import Footer from "@/sections/Footer";
 import { Button } from "@/components/ui/button";
 
-const stats = [
-  { value: "30+", label: "Years of Experience" },
-  { value: "6+", label: "Valve Series" },
-  { value: "8+", label: "Industries Served" },
-  { value: "100%", label: "In-House Manufacturing" },
-];
 
 const pillars = [
   {
@@ -104,27 +98,6 @@ export default function CompanyProfile() {
                   <p className="text-white/70 text-sm">Plot 763/764, 40 Shed Area, GIDC Vapi</p>
                 </div>
               </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats bar */}
-        <section className="bg-primary py-14">
-          <div className="container mx-auto px-4 md:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="text-center"
-                >
-                  <p className="text-5xl font-black text-white mb-2">{s.value}</p>
-                  <p className="text-white/80 text-sm font-semibold uppercase tracking-widest">{s.label}</p>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
