@@ -61,30 +61,13 @@ export default function Technical() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative h-[600px] bg-secondary rounded-xl p-8 flex items-center justify-center"
+            className="relative flex items-center justify-center"
           >
-            {/* SVG Diagram Placeholder */}
-            <svg viewBox="0 0 400 600" className="w-full h-full max-w-sm" stroke="currentColor" fill="none">
-              <path d="M150 100 L250 100 L250 150 L150 150 Z" className="text-accent stroke-2" fill="#1F2D6B" />
-              <path d="M180 150 L220 150 L220 400 L180 400 Z" className="text-primary stroke-2" fill="none" />
-              <path d="M100 350 L300 350 L300 450 L100 450 Z" className="text-accent stroke-2" fill="#1F2D6B" />
-              <circle cx="200" cy="400" r="40" className="text-primary stroke-2" />
-              
-              {/* Callouts */}
-              <g className="text-white font-sans text-xs">
-                <line x1="250" y1="125" x2="320" y2="125" className="stroke-white/50" />
-                <text x="330" y="130" fill="currentColor">Actuator Mount</text>
-                
-                <line x1="220" y1="250" x2="320" y2="250" className="stroke-white/50" />
-                <text x="330" y="255" fill="currentColor">Stem</text>
-                
-                <line x1="300" y1="400" x2="320" y2="400" className="stroke-white/50" />
-                <text x="330" y="405" fill="currentColor">Body</text>
-                
-                <line x1="240" y1="400" x2="280" y2="300" className="stroke-white/50" />
-                <text x="285" y="295" fill="currentColor">Gate</text>
-              </g>
-            </svg>
+            <img
+              src="/images/technical-spec.png"
+              alt="Knife Gate Valve Exploded Diagram"
+              className="w-full h-auto object-contain"
+            />
           </motion.div>
         </div>
       </div>
