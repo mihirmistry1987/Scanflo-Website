@@ -51,7 +51,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 shadow-xl shadow-black/40" data-testid="navbar">
+    <header className="fixed top-0 left-0 right-0 z-50 shadow-md shadow-black/10" data-testid="navbar">
 
       {/* Top utility bar */}
       <div className="bg-[#F58220] hidden md:block">
@@ -73,9 +73,9 @@ export default function Navbar() {
       </div>
 
       {/* Main nav bar */}
-      <div className="flex items-stretch">
+      <div className="flex items-stretch border-b border-border">
 
-        {/* Logo panel */}
+        {/* Logo panel — stays black for contrast */}
         <Link
           href="/"
           className="flex items-center justify-center bg-black px-6 md:px-10 py-3 shrink-0 cursor-pointer border-r-4 border-[#F58220]"
@@ -89,8 +89,8 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Nav links */}
-        <div className="flex-1 bg-black flex items-center justify-between px-6 md:px-10 py-3">
+        {/* Nav links — white background */}
+        <div className="flex-1 bg-white flex items-center justify-between px-6 md:px-10 py-3">
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) =>
               link.dropdown ? (
@@ -104,7 +104,7 @@ export default function Navbar() {
                     className={`flex items-center gap-1 text-sm font-semibold uppercase tracking-widest transition-colors ${
                       location.startsWith(link.href) && link.href !== "/"
                         ? "text-[#F58220]"
-                        : "text-white/80 hover:text-[#F58220]"
+                        : "text-gray-700 hover:text-[#F58220]"
                     }`}
                     data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                   >
@@ -122,7 +122,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-2 w-60 bg-black border border-white/10 shadow-2xl z-50"
+                        className="absolute top-full left-0 mt-2 w-60 bg-white border border-border shadow-xl z-50"
                         onMouseEnter={() => handleMouseEnter(link.href)}
                         onMouseLeave={handleMouseLeave}
                       >
@@ -131,7 +131,7 @@ export default function Navbar() {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-5 py-3 text-sm text-white/80 hover:text-[#F58220] hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 font-medium"
+                            className="block px-5 py-3 text-sm text-gray-700 hover:text-[#F58220] hover:bg-orange-50 transition-colors border-b border-border last:border-0 font-medium"
                             onClick={() => setActiveDropdown(null)}
                           >
                             {item.label}
@@ -148,7 +148,7 @@ export default function Navbar() {
                   className={`text-sm font-semibold uppercase tracking-widest transition-colors ${
                     location === link.href
                       ? "text-[#F58220]"
-                      : "text-white/80 hover:text-[#F58220]"
+                      : "text-gray-700 hover:text-[#F58220]"
                   }`}
                   data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                 >
@@ -159,7 +159,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4 ml-auto">
-            <div className="w-px h-6 bg-white/20" />
+            <div className="w-px h-6 bg-border" />
             <Link href="/contact" data-testid="btn-get-quote">
               <Button className="bg-[#F58220] hover:bg-[#F58220]/90 text-white font-bold rounded-none px-7 h-10 text-sm uppercase tracking-wider">
                 Get a Quote
@@ -168,7 +168,7 @@ export default function Navbar() {
           </div>
 
           <button
-            className="md:hidden text-white p-1 ml-auto"
+            className="md:hidden text-gray-700 p-1 ml-auto"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="btn-mobile-menu"
           >
@@ -184,17 +184,17 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-black border-t border-[#F58220]/40 overflow-hidden"
+            className="bg-white border-t border-[#F58220]/40 overflow-hidden shadow-lg"
           >
             <div className="flex flex-col px-6 py-4 gap-1">
-              <div className="text-[#F58220] text-xs font-medium mb-3 pb-3 border-b border-white/10">
+              <div className="text-[#F58220] text-xs font-medium mb-3 pb-3 border-b border-border">
                 A Division of Scan Engineering
               </div>
               {navLinks.map((link) =>
                 link.dropdown ? (
                   <div key={link.href}>
                     <button
-                      className="w-full flex items-center justify-between text-base font-semibold text-white/80 hover:text-[#F58220] transition-colors py-2.5 border-b border-white/5 uppercase tracking-wider"
+                      className="w-full flex items-center justify-between text-base font-semibold text-gray-700 hover:text-[#F58220] transition-colors py-2.5 border-b border-border uppercase tracking-wider"
                       onClick={() => setMobileOpenKey(mobileOpenKey === link.href ? null : link.href)}
                     >
                       {link.label}
@@ -215,7 +215,7 @@ export default function Navbar() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="block pl-4 py-2 text-sm text-white/60 hover:text-[#F58220] transition-colors border-b border-white/5"
+                              className="block pl-4 py-2 text-sm text-gray-600 hover:text-[#F58220] transition-colors border-b border-border"
                               onClick={() => { setIsMobileMenuOpen(false); setMobileOpenKey(null); }}
                             >
                               {item.label}
@@ -229,7 +229,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-base font-semibold text-white/80 hover:text-[#F58220] transition-colors py-2.5 border-b border-white/5 uppercase tracking-wider"
+                    className="text-base font-semibold text-gray-700 hover:text-[#F58220] transition-colors py-2.5 border-b border-border uppercase tracking-wider"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}

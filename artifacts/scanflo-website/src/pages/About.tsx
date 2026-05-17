@@ -14,8 +14,8 @@ export default function AboutPage() {
       className="bg-background min-h-screen pt-20"
     >
       <Navbar />
-      <div className="bg-secondary py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter">About Scanflo</h1>
+      <div className="bg-white border-b-4 border-primary py-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-black text-secondary tracking-tighter">About Scanflo</h1>
       </div>
       <AboutSection />
       <WhyScanflo />

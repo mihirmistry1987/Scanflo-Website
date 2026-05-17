@@ -34,24 +34,17 @@ const features = [
   },
 ];
 
-const bullets = [
-  "It's our attention to the small stuff, scheduling of timelines and high quality product that makes us stand out from the rest. We are creative, while keeping an eye on the calendar and your budget.",
-  "With more than three decades of experience and a core technical team to assist, customers can bank on us for trouble free, peace of mind operation.",
-  "In order to cater to our growing customer base we maintain a large amount of stock of regular valve sizes with us. This reduces your inventory carrying cost.",
-  "On time & within budget.",
-];
-
 export default function WhyScanflo() {
   return (
-    <section className="py-24 bg-secondary text-white" data-testid="section-why-scanflo">
+    <section className="py-24 bg-[#F58220]" data-testid="section-why-scanflo">
       <div className="container mx-auto px-4 md:px-8">
 
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-4">Why Choose Us</h2>
-          <h3 className="text-4xl font-black tracking-tight mb-6">
+          <h2 className="text-sm font-bold text-white/80 tracking-widest uppercase mb-4">Why Choose Us</h2>
+          <h3 className="text-4xl font-black tracking-tight mb-6 text-white">
             The Scanflo Advantage
           </h3>
-          <div className="w-20 h-1 bg-primary mx-auto" />
+          <div className="w-20 h-1 bg-white mx-auto" />
         </div>
 
         {/* Feature cards */}
@@ -63,11 +56,11 @@ export default function WhyScanflo() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors flex flex-col"
+              className="bg-white border border-white/20 p-8 hover:shadow-lg transition-shadow flex flex-col"
             >
-              <feature.icon className="w-12 h-12 text-primary mb-6" strokeWidth={1.5} />
-              <h4 className="text-xl font-bold mb-3 uppercase tracking-wide">{feature.title}</h4>
-              <p className="text-accent/80 text-sm leading-relaxed">{feature.desc}</p>
+              <feature.icon className="w-12 h-12 text-[#F58220] mb-6" strokeWidth={1.5} />
+              <h4 className="text-xl font-bold mb-3 uppercase tracking-wide text-secondary">{feature.title}</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </div>

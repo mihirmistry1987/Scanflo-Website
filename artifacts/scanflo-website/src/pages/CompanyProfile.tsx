@@ -40,7 +40,7 @@ export default function CompanyProfile() {
       <Navbar />
 
       {/* Page header */}
-      <div className="bg-secondary text-white py-14">
+      <div className="bg-white border-b-4 border-primary py-14">
         <div className="container mx-auto px-4 md:px-8">
           <Link href="/about" className="inline-flex items-center text-white/60 hover:text-primary font-medium mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to About Us
@@ -48,8 +48,8 @@ export default function CompanyProfile() {
           <div className="flex items-center gap-4 mb-3">
             <span className="bg-primary text-white text-sm font-bold px-4 py-1 uppercase tracking-widest">About Us</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight">Company Profile</h1>
-          <p className="text-white/60 mt-3 text-lg max-w-xl">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-secondary">Company Profile</h1>
+          <p className="text-muted-foreground mt-3 text-lg max-w-xl">
             A wholly owned subsidiary of Scan Engineering, Vapi, Gujarat — designing and manufacturing knife gate valves for the toughest applications.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function CompanyProfile() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                   <p className="text-white font-bold text-lg">Scan Engineering — Vapi, Gujarat</p>
-                  <p className="text-white/70 text-sm">Plot 763/764, 40 Shed Area, GIDC Vapi</p>
+                  <p className="text-muted-foreground text-sm">Plot 763/764, 40 Shed Area, GIDC Vapi</p>
                 </div>
               </motion.div>
             </div>
@@ -179,7 +179,7 @@ export default function CompanyProfile() {
         </section>
 
         {/* Vision & Mission */}
-        <section className="py-14 bg-secondary text-white">
+        <section className="py-14 bg-muted/40">
           <div className="container mx-auto px-4 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
               <motion.div
@@ -194,7 +194,7 @@ export default function CompanyProfile() {
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Vision</h3>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     SCANFLO Valves envisions global leadership in innovative valve solutions. We are dedicated to setting the industry standard for quality and durability — backed by a streamlined production process, a team of experts, and top-class materials. We aspire to be the globally preferred choice, evident through repeat orders and customer acclaim.
                   </p>
                 </div>
@@ -212,7 +212,7 @@ export default function CompanyProfile() {
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Mission</h3>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     At SCANFLO Valves we specialise in crafting resilient knife gate valves for the most challenging applications. Our unwavering mission is to consistently deliver high-quality products and tailored valve solutions — meeting every customer's process requirement with precision, speed, and reliability.
                   </p>
                 </div>
