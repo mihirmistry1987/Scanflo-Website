@@ -8,6 +8,7 @@ const slides = [
   {
     id: 1,
     image: "/images/hero-slide-1.png",
+    fit: "contain" as const,
     headline: "Precision Engineered",
     highlight: "Knife Gate Valves",
     subheadline: "Superior Quality • Reliable Performance • Built for Tough Applications",
@@ -16,6 +17,7 @@ const slides = [
   {
     id: 2,
     image: "/images/hero-slide-2.png",
+    fit: "cover" as const,
     headline: "State-of-the-Art",
     highlight: "Manufacturing Facility",
     subheadline: "In-House Foundry • CNC Precision Machining • Three Decades of Engineering",
@@ -24,6 +26,7 @@ const slides = [
   {
     id: 3,
     image: "/images/hero-slide-3.png",
+    fit: "cover" as const,
     headline: "Trusted Across",
     highlight: "Global Industries",
     subheadline: "Mining • Power Plants • Wastewater • Chemical • Pulp & Paper",
@@ -78,8 +81,11 @@ export default function Hero() {
           data-testid={`slide-${slides[current].id}`}
         >
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${slides[current].image})` }}
+            className="absolute inset-0 bg-center bg-no-repeat bg-black"
+            style={{
+              backgroundImage: `url(${slides[current].image})`,
+              backgroundSize: slides[current].fit,
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
