@@ -45,13 +45,14 @@ export default function Navbar() {
         {/* Logo container — white panel */}
         <Link
           href="/"
-          className="flex items-center justify-center bg-white px-6 md:px-10 py-3 shrink-0 cursor-pointer border-r-4 border-[#F58220]"
+          className="flex items-center justify-center bg-black px-6 md:px-10 py-3 shrink-0 cursor-pointer border-r-4 border-[#F58220]"
           data-testid="link-home"
         >
           <img
             src={scanfloLogo}
             alt="Scanflo Valves"
             className="h-14 md:h-16 w-auto object-contain"
+            style={{ filter: "invert(1) hue-rotate(180deg)" }}
           />
         </Link>
 

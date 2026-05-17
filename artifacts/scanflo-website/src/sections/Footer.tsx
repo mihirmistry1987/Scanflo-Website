@@ -8,11 +8,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-white/10 pb-12">
           <div>
             <Link href="/" className="inline-block mb-6">
-              <div className="bg-white rounded px-3 py-2 inline-block">
+              <div className="bg-black rounded px-3 py-2 inline-block">
                 <img
                   src={scanfloLogo}
                   alt="Scanflo Valves"
                   className="h-10 w-auto object-contain"
+                  style={{ filter: "invert(1) hue-rotate(180deg)" }}
                 />
               </div>
             </Link>
