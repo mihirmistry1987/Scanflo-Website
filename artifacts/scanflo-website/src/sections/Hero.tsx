@@ -105,8 +105,8 @@ export default function Hero() {
           />
           {!slides[current].lightBg && (
             <>
-              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/35 to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </>
           )}
           {slides[current].lightBg && (
