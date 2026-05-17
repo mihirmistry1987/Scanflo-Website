@@ -58,7 +58,7 @@ export default function CompanyProfile() {
       <div className="space-y-0">
 
         {/* Intro section — building image + text */}
-        <section className="py-20 bg-white">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 md:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -103,7 +103,7 @@ export default function CompanyProfile() {
         </section>
 
         {/* Manufacturing section — factory floor image + text */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4 md:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
