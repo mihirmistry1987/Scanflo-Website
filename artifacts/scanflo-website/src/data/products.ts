@@ -28,48 +28,39 @@ export const products: Product[] = [
     category: "Manual"
   },
   {
-    id: "pneumatic",
-    name: "Pneumatic Actuated Valve",
-    series: "PA Series",
-    description: "Automated control valve with spring-return cylinder for fail-safe operations in critical environments.",
-    features: ["Spring-Return Cylinder", "Fail-Safe Operation", "Automated Control"],
+    id: "long-plate",
+    name: "Through Going Long Plate Valve",
+    series: "LP Series",
+    description: "Extended long plate design for through-going installation in pipelines requiring unobstructed bore and minimal flow resistance.",
+    features: ["Full Bore Opening", "Through Going Design", "Low Flow Resistance"],
+    image: "/images/product-sb-series.png",
+    category: "Manual"
+  },
+  {
+    id: "double-knife",
+    name: "Double Knife Gate Valve",
+    series: "DK Series",
+    description: "Dual-blade knife gate valve engineered for demanding isolation duties where positive shutoff on both sides is required.",
+    features: ["Dual Blade Design", "Positive Shutoff", "Heavy-Duty Isolation"],
+    image: "/images/product-sa-series.png",
+    category: "Manual"
+  },
+  {
+    id: "mining",
+    name: "Mining Valve",
+    series: "MV Series",
+    description: "Ruggedised knife gate valve built to withstand the harshest mining environments including abrasive slurries and high solids content.",
+    features: ["Abrasion Resistant", "High Solids Handling", "Heavy-Duty Construction"],
     image: "/images/product-pneumatic.png",
     category: "Automated"
   },
   {
-    id: "electric",
-    name: "Electric Actuated Valve",
-    series: "EA Series",
-    description: "Motorized valve designed for precise positioning and reliable remote control capabilities.",
-    features: ["Motorized Operation", "Precise Positioning", "Remote Control"],
-    image: "/images/product-sa-series.png", // placeholder
-    category: "Automated"
-  },
-  {
-    id: "hydraulic",
-    name: "Hydraulic Actuated Valve",
-    series: "HA Series",
-    description: "Heavy-duty high-torque hydraulic cylinder valve engineered for the most demanding applications.",
-    features: ["High-Torque Cylinder", "Heavy-Duty", "Robust Construction"],
-    image: "/images/product-sb-series.png", // placeholder
-    category: "Automated"
-  },
-  {
-    id: "chain-wheel",
-    name: "Chain Wheel Operated Valve",
-    series: "CW Series",
-    description: "Large bore manual operation valve featuring a chain wheel operator for hard-to-reach installations.",
-    features: ["Large Bore", "Manual Operation", "Chain Wheel Operator"],
-    image: "/images/product-sa-series.png", // placeholder
+    id: "special",
+    name: "Specially Engineered Valve",
+    series: "SE Series",
+    description: "Custom-engineered knife gate valves designed to exact client specifications for unique process conditions and non-standard requirements.",
+    features: ["Custom Specifications", "Non-Standard Sizes", "Application-Specific Design"],
+    image: "/images/product-sb-series.png",
     category: "Manual"
   },
-  {
-    id: "gearbox",
-    name: "Gearbox Operated Valve",
-    series: "GB Series",
-    description: "High-torque manual operation valve utilizing worm gear reduction for smooth and controlled flow management.",
-    features: ["Worm Gear Reduction", "High-Torque", "Smooth Operation"],
-    image: "/images/product-sb-series.png", // placeholder
-    category: "Manual"
-  }
 ];
