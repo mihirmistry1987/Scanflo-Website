@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import scanfloLogo from "@assets/Scanflo_Logo_1778997253423.png";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,14 +34,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex flex-col group cursor-pointer" data-testid="link-home">
-            <span className="text-2xl md:text-3xl font-black text-white tracking-tighter leading-none relative">
-              SCANFLO
-              <span className="absolute bottom-0 left-0 w-6 h-1 bg-primary group-hover:w-full transition-all duration-300"></span>
-            </span>
-            <span className="text-xs text-muted-foreground tracking-widest mt-1">
-              A Division of Scan Engineering
-            </span>
+          <Link href="/" className="flex items-center cursor-pointer" data-testid="link-home">
+            <img
+              src={scanfloLogo}
+              alt="Scanflo Valves"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
