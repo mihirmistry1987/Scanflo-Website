@@ -6,9 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import scanfloLogo from "@assets/Scanflo_Logo_1778997253423.png";
 
 const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Industries", href: "/industries" },
-  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -50,7 +51,7 @@ export default function Navbar() {
           <img
             src={scanfloLogo}
             alt="Scanflo Valves"
-            className="h-10 md:h-12 w-auto object-contain"
+            className="h-14 md:h-16 w-auto object-contain"
           />
         </Link>
 

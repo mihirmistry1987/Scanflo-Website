@@ -104,13 +104,13 @@ export default function Hero() {
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+              <h1 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight">
                 {slides[current].headline}
                 <br />
                 <span className="text-primary">{slides[current].highlight}</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-white/75 font-light tracking-wide max-w-xl">
+              <p className="text-base md:text-lg text-white/75 font-light tracking-wide max-w-xl">
                 {slides[current].subheadline}
               </p>
 
