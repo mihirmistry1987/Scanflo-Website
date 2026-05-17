@@ -55,7 +55,7 @@ export default function WhyScanflo() {
         </div>
 
         {/* Feature cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -63,7 +63,7 @@ export default function WhyScanflo() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors"
+              className="bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors flex flex-col"
             >
               <feature.icon className="w-12 h-12 text-primary mb-6" strokeWidth={1.5} />
               <h4 className="text-xl font-bold mb-3 uppercase tracking-wide">{feature.title}</h4>
