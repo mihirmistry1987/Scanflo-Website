@@ -17,7 +17,6 @@ const productDropdown = [
 const aboutDropdown = [
   { label: "Company Profile", href: "/about/company-profile" },
   { label: "Why Choose Scanflo", href: "/about/why-scanflo" },
-  { label: "Certifications", href: "/about/certifications" },
 ];
 
 const designDropdown = [
