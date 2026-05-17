@@ -30,7 +30,7 @@ export const products: Product[] = [
   {
     id: "long-plate",
     name: "Through Going Long Plate Valve",
-    series: "LP Series",
+    series: "ST Series",
     description: "Extended long plate design for through-going installation in pipelines requiring unobstructed bore and minimal flow resistance.",
     features: ["Full Bore Opening", "Through Going Design", "Low Flow Resistance"],
     image: "/images/product-sb-series.png",
@@ -39,7 +39,7 @@ export const products: Product[] = [
   {
     id: "double-knife",
     name: "Double Knife Gate Valve",
-    series: "DK Series",
+    series: "SD Series",
     description: "Dual-blade knife gate valve engineered for demanding isolation duties where positive shutoff on both sides is required.",
     features: ["Dual Blade Design", "Positive Shutoff", "Heavy-Duty Isolation"],
     image: "/images/product-sa-series.png",
@@ -48,7 +48,7 @@ export const products: Product[] = [
   {
     id: "mining",
     name: "Mining Valve",
-    series: "MV Series",
+    series: "SM Series",
     description: "Ruggedised knife gate valve built to withstand the harshest mining environments including abrasive slurries and high solids content.",
     features: ["Abrasion Resistant", "High Solids Handling", "Heavy-Duty Construction"],
     image: "/images/product-pneumatic.png",
