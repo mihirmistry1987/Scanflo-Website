@@ -12,7 +12,7 @@ const slides = [
     lightBg: false,
     bgOverride: {
       backgroundImage: `url(/images/hero-slide-1.png), linear-gradient(to bottom, #ffffff 27%, #F58220 27%, #F58220 73%, #ffffff 73%)`,
-      backgroundSize: "cover, cover",
+      backgroundSize: "contain, cover",
       backgroundPosition: "center, center",
       backgroundRepeat: "no-repeat, no-repeat",
     },
