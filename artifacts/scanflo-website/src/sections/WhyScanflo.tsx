@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Cog, FlaskConical, Package, Ruler, ShieldCheck, Zap } from "lucide-react";
+import { Cog, FlaskConical, Package, Ruler, ShieldCheck, Zap } from "lucide-react";
 
 const features = [
   {
@@ -53,30 +53,6 @@ export default function WhyScanflo() {
           </h3>
           <div className="w-20 h-1 bg-primary mx-auto" />
         </div>
-
-        {/* Intro paragraph + bullets */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto mb-12 space-y-6"
-        >
-          <p className="text-accent/80 text-base leading-relaxed text-center">
-            We know there are a lot of valve manufacturing firms and it is difficult to select the best partner. If you are looking for a solution provider who understands flow regulation of high consistency material like pulp, sludge, slurry etc and can provide economical solutions then we will not disappoint you.
-          </p>
-          <ul className="space-y-3">
-            {bullets.map((point, i) => (
-              <li key={i} className="flex items-start gap-3 text-accent/80 text-sm leading-relaxed">
-                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="text-accent/80 text-base leading-relaxed text-center">
-            We believe in delivering what we commit. We are clear from the initial proposal to set expectations and ensure success. Every transaction with our customer is to be on time, within budget and without surprises.
-          </p>
-        </motion.div>
 
         {/* Feature cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
