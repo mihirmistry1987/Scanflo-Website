@@ -6,11 +6,18 @@ import Footer from "@/sections/Footer";
 import { Button } from "@/components/ui/button";
 
 const materials = [
-  { part: "Body", mat: "Cast Iron CI / Ductile Iron / WCB" },
-  { part: "Gate/Disc", mat: "SS304 / SS316" },
-  { part: "Seat", mat: "NBR / EPDM / PTFE / Metal" },
-  { part: "Gland Packing", mat: "PTFE / Graphite" },
-  { part: "Stem", mat: "SS304 / SS316" },
+  { part: "Body", mat: "CF8, CF8M" },
+  { part: "Gate", mat: "SS304, SS316" },
+  { part: "Seat", mat: "Metal Seat / Soft Seat" },
+  { part: "Packing", mat: "PTFE Impregnated Fibre" },
+  { part: "Gland Follower", mat: "CF8, CF8M" },
+  { part: "Stem", mat: "SS304" },
+  { part: "Stem Nut", mat: "Forged PB" },
+  { part: "Yoke", mat: "Carbon Steel" },
+  { part: "Seat Ring", mat: "SS304, SS316" },
+  { part: "Actuation", mat: "Manual" },
+  { part: "Handwheel", mat: "SG Iron" },
+  { part: "Stem Cover", mat: "Carbon Steel" },
 ];
 
 const actuationOptions = [
