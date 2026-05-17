@@ -29,7 +29,6 @@ export default function Footer() {
               <li><Link href="/industries" className="hover:text-primary transition-colors">Industries Served</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors">About Scanflo</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Download Center</Link></li>
             </ul>
           </div>
 

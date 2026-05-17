@@ -6,7 +6,6 @@ import WhyScanflo from "@/sections/WhyScanflo";
 import Technical from "@/sections/Technical";
 import Industries from "@/sections/Industries";
 import Manufacturing from "@/sections/Manufacturing";
-import Downloads from "@/sections/Downloads";
 import Contact from "@/sections/Contact";
 import Footer from "@/sections/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -29,7 +28,6 @@ export default function Home() {
         <Technical />
         <Industries />
         <Manufacturing />
-        <Downloads />
         <Contact />
       </main>
       <Footer />
