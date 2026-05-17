@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import scanfloLogo from "@assets/Scanflo_Logo_1778997253423.png";
 
 export default function Footer() {
   return (
@@ -7,13 +8,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-white/10 pb-12">
           <div>
             <Link href="/" className="inline-block mb-6">
-              <span className="text-3xl font-black text-white tracking-tighter leading-none relative">
-                SCANFLO
-                <span className="absolute bottom-0 left-0 w-6 h-1 bg-primary"></span>
-              </span>
-              <span className="block text-xs text-accent mt-1 tracking-widest">
-                A Division of Scan Engineering
-              </span>
+              <div className="bg-white rounded px-3 py-2 inline-block">
+                <img
+                  src={scanfloLogo}
+                  alt="Scanflo Valves"
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
             </Link>
             <p className="text-accent/80 text-sm leading-relaxed">
               Premium industrial knife gate valves engineered for extreme environments. Precision manufacturing from our state-of-the-art foundry in Gujarat, India.
