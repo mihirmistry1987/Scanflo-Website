@@ -26,12 +26,23 @@ export default function Industries() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="bg-card border border-border p-8 text-center group hover:border-primary transition-colors cursor-pointer"
+                className="relative group overflow-hidden cursor-pointer"
               >
-                <div className="w-16 h-16 mx-auto bg-muted rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                  <Icon className="w-8 h-8 text-secondary group-hover:text-primary transition-colors" />
+                <div className="aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src={ind.image}
+                    alt={ind.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-                <h4 className="font-bold text-secondary text-sm md:text-base">{ind.name}</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary/90 flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
+                  <h4 className="font-bold text-white text-sm md:text-base leading-tight">{ind.name}</h4>
+                </div>
               </motion.div>
             );
           })}
