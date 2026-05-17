@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import scanfloLogo from "@assets/Scanflo_Logo_1778997253423.png";
@@ -22,10 +22,20 @@ export default function Navbar() {
 
       {/* Top utility bar — orange */}
       <div className="bg-[#F58220] hidden md:block">
-        <div className="container mx-auto px-4 md:px-8 flex items-center justify-center h-9">
+        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between h-9">
           <span className="text-white/90 text-xs font-medium tracking-wide">
             A Division of Scan Engineering
           </span>
+          <div className="flex items-center gap-6">
+            <a href="tel:+919825097587" className="flex items-center gap-1.5 text-white/90 hover:text-white text-xs font-medium transition-colors" data-testid="link-phone">
+              <Phone size={11} />
+              +91 98250 97587
+            </a>
+            <a href="mailto:info@scanengg.com" className="flex items-center gap-1.5 text-white/90 hover:text-white text-xs font-medium transition-colors" data-testid="link-email">
+              <Mail size={11} />
+              info@scanengg.com
+            </a>
+          </div>
         </div>
       </div>
 
