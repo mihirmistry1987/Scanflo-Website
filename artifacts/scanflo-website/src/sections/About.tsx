@@ -69,7 +69,7 @@ export default function About() {
             className="relative"
           >
             <img
-              src="/images/factory-floor.png"
+              src="/images/about-factory.png"
               alt="Scanflo Factory Floor"
               className="w-full h-auto shadow-2xl rounded-none grayscale hover:grayscale-0 transition-all duration-700"
               data-testid="img-factory"
