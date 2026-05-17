@@ -71,7 +71,7 @@ export default function About() {
             <img
               src="/images/about-factory.png"
               alt="Scanflo Factory Floor"
-              className="w-full h-auto shadow-2xl rounded-none grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full h-auto shadow-2xl rounded-none"
               data-testid="img-factory"
             />
             <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-primary -z-10" />
