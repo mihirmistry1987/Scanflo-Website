@@ -13,6 +13,7 @@ import Industries from "@/pages/Industries";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import DesignConstruction from "@/pages/DesignConstruction";
+import CompanyProfile from "@/pages/CompanyProfile";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/design/construction" component={DesignConstruction} />
+        <Route path="/about/company-profile" component={CompanyProfile} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
