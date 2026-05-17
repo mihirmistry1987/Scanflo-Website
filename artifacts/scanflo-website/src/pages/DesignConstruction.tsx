@@ -77,8 +77,8 @@ export default function DesignConstruction() {
             <span className="bg-primary text-white text-sm font-bold px-4 py-1 uppercase tracking-widest">Design</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight">Design &amp; Construction</h1>
-          <p className="text-white/60 mt-4 text-lg max-w-2xl leading-relaxed">
-            Scanflo knife gate valves are engineered for on-off and throttling applications — featuring investment cast bodies in SS304 &amp; SS316, available in sizes from 2&quot; to 24&quot; (DN 50–DN 500 mm), in both metal and resilient seated versions.
+          <p className="text-white/60 mt-3 text-lg max-w-xl">
+            A detailed look at the anatomy, materials, and engineering behind every Scanflo Knife Gate Valve.
           </p>
         </div>
       </div>
