@@ -12,8 +12,8 @@ const slides = [
     lightBg: false,
     bgOverride: {
       backgroundImage: `url(/images/hero-slide-1-nobg.png), linear-gradient(to bottom, #ffffff 27%, #F58220 27%, #F58220 73%, #ffffff 73%)`,
-      backgroundSize: "auto 85%, cover",
-      backgroundPosition: "right center, center",
+      backgroundSize: "62% auto, cover",
+      backgroundPosition: "calc(100% + 20px) center, center",
       backgroundRepeat: "no-repeat, no-repeat",
     },
     headline: "Precision Engineered",
