@@ -44,9 +44,9 @@ export default function ProductDetail() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className={`bg-muted/30 border border-border p-8 flex items-center justify-center overflow-hidden ${
-              product.imageFrame === "portrait" ? "aspect-[1/2.1]" : "min-h-[400px]"
+              product.imageFrame === "portrait" ? "aspect-[1/1.86]" : "min-h-[400px]"
             }`}
-            style={product.imageFrame === "portrait" ? { aspectRatio: "1 / 2.1" } : undefined}
+            style={product.imageFrame === "portrait" ? { aspectRatio: "1 / 1.86" } : undefined}
           >
             <img
               src={product.image}
