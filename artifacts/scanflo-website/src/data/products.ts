@@ -9,7 +9,7 @@ export type Product = {
   materials: { part: string; material: string }[];
   ctaSentence: string;
   image: string;
-  imageFrame?: "portrait";
+  imageFrame?: "portrait" | "square";
   category: string;
 };
 
@@ -116,7 +116,8 @@ export const products: Product[] = [
       { part: "Bottom Cover", material: "Blind flange with flush port" }
     ],
     ctaSentence: "Eliminate pipeline turbulence and wear with our zero-resistance long plate valves.",
-    image: "/images/long-plate-valve-st.jpg",
+    image: "/images/long-plate-valve-st-no-bg.png",
+    imageFrame: "square",
     category: "Manual"
   },
   {
