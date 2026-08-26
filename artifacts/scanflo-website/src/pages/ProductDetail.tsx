@@ -43,12 +43,19 @@ export default function ProductDetail() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-muted/30 border border-border p-8 flex items-center justify-center min-h-[400px]"
+            className={`bg-muted/30 border border-border p-8 flex items-center justify-center overflow-hidden ${
+              product.imageFrame === "portrait" ? "aspect-[1/2.1]" : "min-h-[400px]"
+            }`}
+            style={product.imageFrame === "portrait" ? { aspectRatio: "1 / 2.1" } : undefined}
           >
             <img
               src={product.image}
               alt={`${product.series} ${product.name}`}
-              className="w-full max-w-md object-contain"
+              className={
+                product.imageFrame === "portrait"
+                  ? "h-full w-full max-w-none object-cover object-center"
+                  : "w-full max-w-md object-contain"
+              }
             />
           </motion.div>
 

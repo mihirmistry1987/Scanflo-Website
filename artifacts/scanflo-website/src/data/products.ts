@@ -9,6 +9,7 @@ export type Product = {
   materials: { part: string; material: string }[];
   ctaSentence: string;
   image: string;
+  imageFrame?: "portrait";
   category: string;
 };
 
@@ -81,6 +82,7 @@ export const products: Product[] = [
     ],
     ctaSentence: "Ensure fail-proof bidirectional isolation in your critical slurry lines with the SB Series.",
     image: "/images/bi-directional-valve-sb.jpg",
+    imageFrame: "portrait",
     category: "Manual"
   },
   {
