@@ -56,7 +56,9 @@ export default function ProductDetail() {
               src={product.image}
               alt={`${product.series} ${product.name}`}
               className={
-                product.imageFrame === "portrait"
+                product.imageFit === "contain"
+                  ? "h-full w-full max-w-none object-contain object-center"
+                  : product.imageFrame === "portrait"
                   || product.imageFrame === "square"
                   ? "h-full w-full max-w-none object-cover object-center"
                   : "w-full max-w-md object-contain"
