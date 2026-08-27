@@ -117,7 +117,7 @@ export const products: Product[] = [
       { part: "Bottom Cover", material: "Blind flange with flush port" }
     ],
     ctaSentence: "Eliminate pipeline turbulence and wear with our zero-resistance long plate valves.",
-    image: "/images/long-plate-valve-lpv.png",
+    image: "/images/long-plate-valve-lpv-latest.png",
     imageFrame: "square",
     imageFit: "contain",
     category: "Manual"
