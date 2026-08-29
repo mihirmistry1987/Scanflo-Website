@@ -188,7 +188,7 @@ export const products: Product[] = [
       { part: "Splash Guard", material: "Transparent Lexan" }
     ],
     ctaSentence: "Keep your mineral processing lines running longer with valves built for extreme abrasion.",
-    image: "/images/mining-valve-kgd-latest.png",
+    image: "/images/mining-valve-kgd-latest-2.png",
     imageFrame: "square",
     category: "Automated"
   },
