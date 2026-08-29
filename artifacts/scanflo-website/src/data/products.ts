@@ -82,7 +82,7 @@ export const products: Product[] = [
       { part: "Handwheel", material: "Cast Iron" }
     ],
     ctaSentence: "Ensure fail-proof bidirectional isolation in your critical slurry lines with the SB Series.",
-    image: "/images/bi-directional-valve-150nb-no-bg.png",
+    image: "/images/bi-directional-valve-bid-latest.png",
     imageFrame: "square",
     category: "Manual"
   },
