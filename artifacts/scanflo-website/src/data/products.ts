@@ -153,8 +153,9 @@ export const products: Product[] = [
       { part: "Linkage", material: "SS304 Synchronizing bar" }
     ],
     ctaSentence: "Achieve verifiable zero-leakage isolation with our engineered double gate technology.",
-    image: "/images/double-knife-valve-two-way-no-bg.png",
+    image: "/images/double-knife-valve-dkv-latest.png",
     imageFrame: "square",
+    imageFit: "contain",
     category: "Manual"
   },
   {
