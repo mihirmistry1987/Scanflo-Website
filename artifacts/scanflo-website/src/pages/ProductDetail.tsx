@@ -117,9 +117,6 @@ export default function ProductDetail() {
                   Request a Quote
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="rounded-none border-secondary text-secondary hover:bg-secondary hover:text-white px-8 font-bold h-14">
-                Download Datasheet
-              </Button>
             </div>
           </motion.div>
         </div>
