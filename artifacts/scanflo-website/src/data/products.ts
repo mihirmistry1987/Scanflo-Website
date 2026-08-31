@@ -223,7 +223,7 @@ export const products: Product[] = [
       { part: "Documentation", material: "Full EN 10204 3.1 / 3.2 certs" }
     ],
     ctaSentence: "Bring us your most challenging process parameters; our design team will engineer the solution.",
-    image: "/images/technical-spec.png",
+    image: "/images/specially-engineered-valve-latest.png",
     category: "Manual"
   }
 ];
