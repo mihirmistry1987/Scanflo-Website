@@ -10,8 +10,6 @@ servers:
 tags:
   - name: health
     description: Health operations
-  - name: catalogue
-    description: Catalogue download operations
 paths:
   /healthz:
     get:
@@ -26,38 +24,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
-  /catalogue:
-    post:
-      operationId: downloadCatalogue
-      tags: [catalogue]
-      summary: Download the Scanflo catalogue
-      description: Validates a catalogue request and returns the Scanflo brochure PDF.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/CatalogueRequest"
-      responses:
-        "200":
-          description: Scanflo catalogue PDF
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-        "400":
-          description: Invalid catalogue request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: Catalogue is temporarily unavailable
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -67,50 +33,4 @@ components:
           type: string
       required:
         - status
-    CatalogueRequest:
-      type: object
-      additionalProperties: false
-      properties:
-        name:
-          type: string
-          minLength: 2
-          maxLength: 100
-        company:
-          type: string
-          minLength: 2
-          maxLength: 150
-        email:
-          type: string
-          format: email
-          maxLength: 254
-        phone:
-          type: string
-          minLength: 6
-          maxLength: 30
-        productInterest:
-          type: string
-          enum:
-            - sa-series
-            - sb-series
-            - automated
-            - custom
-            - other
-        message:
-          type: string
-          minLength: 10
-          maxLength: 2000
-      required:
-        - name
-        - company
-        - email
-        - phone
-        - productInterest
-        - message
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: string
-      required:
-        - error
 

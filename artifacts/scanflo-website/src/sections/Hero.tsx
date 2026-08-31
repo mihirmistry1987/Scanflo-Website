@@ -145,15 +145,14 @@ export default function Hero() {
                     {slides[current].cta.label}
                   </Button>
                 </Link>
-                <Link href="/contact?download=catalogue" data-testid="btn-download-catalog">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className={`rounded-none h-14 px-8 text-base font-bold uppercase tracking-wider ${slides[current].lightBg ? "border-gray-800 text-gray-900 hover:bg-gray-900 hover:text-white" : "border-white/70 text-white hover:bg-white hover:text-black"}`}
-                  >
-                    Download Catalogue
-                  </Button>
-                </Link>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className={`rounded-none h-14 px-8 text-base font-bold uppercase tracking-wider ${slides[current].lightBg ? "border-gray-800 text-gray-900 hover:bg-gray-900 hover:text-white" : "border-white/70 text-white hover:bg-white hover:text-black"}`}
+                  data-testid="btn-download-catalog"
+                >
+                  Download Catalogue
+                </Button>
               </div>
             </motion.div>
           </AnimatePresence>

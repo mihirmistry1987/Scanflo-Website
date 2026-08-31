@@ -1,1 +1,0 @@
-- [Protected catalogue downloads](protected-catalogue-downloads.md) — keep brochure bytes API-only; validate requests server-side before returning the PDF.

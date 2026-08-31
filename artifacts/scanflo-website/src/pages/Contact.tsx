@@ -4,10 +4,6 @@ import Footer from "@/sections/Footer";
 import ContactSection from "@/sections/Contact";
 
 export default function ContactPage() {
-  const isCatalogueRequest =
-    typeof window !== "undefined" &&
-    new URLSearchParams(window.location.search).get("download") === "catalogue";
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,11 +13,9 @@ export default function ContactPage() {
     >
       <Navbar />
       <div className="bg-secondary py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter">
-          {isCatalogueRequest ? "Download Catalogue" : "Contact Us"}
-        </h1>
+        <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter">Contact Us</h1>
       </div>
-      <ContactSection catalogueDownload={isCatalogueRequest} />
+      <ContactSection />
       <Footer />
     </motion.div>
   );

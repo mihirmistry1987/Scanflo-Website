@@ -1,40 +1,26 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { downloadCatalogue } from "@workspace/api-client-react";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Download, MapPin, Phone, Mail, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name is required").max(100),
-  company: z.string().min(2, "Company is required").max(150),
-  email: z.string().email("Invalid email address").max(254),
-  phone: z.string().min(6, "Phone number is required").max(30),
-  productInterest: z.enum(
-    ["sa-series", "sb-series", "automated", "custom", "other"],
-    { message: "Please select a product" },
-  ),
-  message: z
-    .string()
-    .min(10, "Message must be at least 10 characters")
-    .max(2000),
+  name: z.string().min(2, "Name is required"),
+  company: z.string().min(2, "Company is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(6, "Phone number is required"),
+  productInterest: z.string().min(1, "Please select a product"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-type ContactProps = {
-  catalogueDownload?: boolean;
-};
-
-export default function Contact({ catalogueDownload = false }: ContactProps) {
+export default function Contact() {
   const { toast } = useToast();
-  const [catalogueFileUrl, setCatalogueFileUrl] = useState<string | null>(null);
-  const [isCatalogueSubmitting, setIsCatalogueSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,50 +28,17 @@ export default function Contact({ catalogueDownload = false }: ContactProps) {
       company: "",
       email: "",
       phone: "",
-      productInterest: undefined,
+      productInterest: "",
       message: "",
     },
   });
 
-  useEffect(() => {
-    return () => {
-      if (catalogueFileUrl) {
-        URL.revokeObjectURL(catalogueFileUrl);
-      }
-    };
-  }, [catalogueFileUrl]);
-
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (catalogueDownload) {
-      setCatalogueFileUrl(null);
-      setIsCatalogueSubmitting(true);
-
-      try {
-        const brochure = await downloadCatalogue(values);
-        setCatalogueFileUrl(URL.createObjectURL(brochure));
-        toast({
-          title: "Catalogue Ready",
-          description:
-            "Your request was validated. You can now download the Scanflo brochure.",
-        });
-        form.reset();
-      } catch {
-        toast({
-          variant: "destructive",
-          title: "Catalogue Unavailable",
-          description:
-            "We could not prepare the catalogue. Please check your details and try again.",
-        });
-      } finally {
-        setIsCatalogueSubmitting(false);
-      }
-    } else {
-      toast({
-        title: "Inquiry Sent Successfully",
-        description: "Our engineering team will contact you shortly.",
-      });
-      form.reset();
-    }
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    toast({
+      title: "Inquiry Sent Successfully",
+      description: "Our engineering team will contact you shortly.",
+    });
+    form.reset();
   }
 
   return (
@@ -100,13 +53,8 @@ export default function Contact({ catalogueDownload = false }: ContactProps) {
           >
             <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-4">Contact Us</h2>
             <h3 className="text-4xl font-black text-secondary tracking-tight mb-8">
-              {catalogueDownload ? "Get the Scanflo Catalogue" : "Request a Quote"}
+              Request a Quote
             </h3>
-            {catalogueDownload && (
-              <p className="text-muted-foreground leading-relaxed -mt-4 mb-8">
-                Complete the form to access our product catalogue and technical capabilities.
-              </p>
-            )}
             
             <div className="space-y-8 mb-12">
               <div className="flex items-start">
@@ -152,9 +100,7 @@ export default function Contact({ catalogueDownload = false }: ContactProps) {
             transition={{ duration: 0.6 }}
             className="bg-card p-8 shadow-xl border border-border"
           >
-            <h4 className="text-2xl font-bold text-secondary mb-6">
-              {catalogueDownload ? "Request Catalogue Access" : "Send an Inquiry"}
-            </h4>
+            <h4 className="text-2xl font-bold text-secondary mb-6">Send an Inquiry</h4>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -192,7 +138,7 @@ export default function Contact({ catalogueDownload = false }: ContactProps) {
                 <FormField control={form.control} name="productInterest" render={({ field }) => (
                   <FormItem>
                     <FormLabel>Product Interest</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value ?? ""}>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger className="rounded-none"><SelectValue placeholder="Select a product category" /></SelectTrigger>
                       </FormControl>
@@ -214,41 +160,11 @@ export default function Contact({ catalogueDownload = false }: ContactProps) {
                     <FormMessage />
                   </FormItem>
                 )} />
-                <Button
-                  type="submit"
-                  disabled={isCatalogueSubmitting}
-                  className="w-full rounded-none h-12 bg-primary hover:bg-primary/90 text-white font-bold mt-4"
-                  data-testid="btn-submit-inquiry"
-                >
-                  {catalogueDownload ? (
-                    <Download className="w-4 h-4 mr-2" />
-                  ) : (
-                    <Send className="w-4 h-4 mr-2" />
-                  )}
-                  {catalogueDownload
-                    ? isCatalogueSubmitting
-                      ? "Preparing Catalogue..."
-                      : "Submit & Unlock Catalogue"
-                    : "Send Inquiry"}
+                <Button type="submit" className="w-full rounded-none h-12 bg-primary hover:bg-primary/90 text-white font-bold mt-4" data-testid="btn-submit-inquiry">
+                  <Send className="w-4 h-4 mr-2" /> Send Inquiry
                 </Button>
               </form>
             </Form>
-            {catalogueDownload && catalogueFileUrl && (
-              <div className="mt-6 border border-primary/30 bg-primary/5 p-5" role="status">
-                <p className="font-bold text-secondary">Thank you for your interest in Scanflo Valves.</p>
-                <p className="text-sm text-muted-foreground mt-1 mb-4">
-                  Your catalogue is ready to download.
-                </p>
-                <a
-                  href={catalogueFileUrl}
-                  download="Scanflo_Brochure.pdf"
-                  className="inline-flex items-center justify-center w-full rounded-none h-12 bg-primary hover:bg-primary/90 text-white font-bold transition-colors"
-                  data-testid="btn-download-brochure"
-                >
-                  <Download className="w-4 h-4 mr-2" /> Download Catalogue PDF
-                </a>
-              </div>
-            )}
           </motion.div>
         </div>
       </div>
