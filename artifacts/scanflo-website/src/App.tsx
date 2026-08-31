@@ -16,6 +16,7 @@ import DesignConstruction from "@/pages/DesignConstruction";
 import CompanyProfile from "@/pages/CompanyProfile";
 import WhyChooseScanflo from "@/pages/WhyChooseScanflo";
 import GlandPacking from "@/pages/GlandPacking";
+import ActuatorOptions from "@/pages/ActuatorOptions";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ function Router() {
         <Route path="/about/company-profile" component={CompanyProfile} />
         <Route path="/about/why-scanflo" component={WhyChooseScanflo} />
         <Route path="/design/gland-packing" component={GlandPacking} />
+        <Route path="/design/actuator-options" component={ActuatorOptions} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
