@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import scanfloLogo from "@assets/Scanflo_Logo_1778997253423.png";
+import scanfloLogo from "@/assets/scanflo-logo.png";
 
 const productDropdown = [
   { label: "Uni-Directional Valves", href: "/products/sa-series" },

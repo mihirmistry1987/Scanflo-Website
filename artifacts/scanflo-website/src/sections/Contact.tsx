@@ -9,6 +9,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import { FORMSPREE_ENDPOINT } from "@/config/contact";
+import { inquiryEmail, sendInquiry } from "@/lib/inquiry";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -21,6 +24,7 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
+  const [emailDraft, setEmailDraft] = useState<string | null>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,12 +37,27 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    toast({
-      title: "Inquiry Sent Successfully",
-      description: "Our engineering team will contact you shortly.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    form.clearErrors("root");
+    setEmailDraft(null);
+    if (!FORMSPREE_ENDPOINT.trim()) {
+      const draft = inquiryEmail(values);
+      setEmailDraft(draft);
+      window.location.href = draft;
+      return;
+    }
+    try {
+      await sendInquiry(FORMSPREE_ENDPOINT, values);
+      toast({
+        title: "Inquiry Sent Successfully",
+        description: "Our engineering team will contact you shortly.",
+      });
+      form.reset();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Your enquiry could not be sent. Please try again.";
+      form.setError("root", { message });
+      toast({ title: "Enquiry not sent", description: message, variant: "destructive" });
+    }
   }
 
   return (
@@ -138,7 +157,7 @@ export default function Contact() {
                 <FormField control={form.control} name="productInterest" render={({ field }) => (
                   <FormItem>
                     <FormLabel>Product Interest</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger className="rounded-none"><SelectValue placeholder="Select a product category" /></SelectTrigger>
                       </FormControl>
@@ -160,8 +179,21 @@ export default function Contact() {
                     <FormMessage />
                   </FormItem>
                 )} />
-                <Button type="submit" className="w-full rounded-none h-12 bg-primary hover:bg-primary/90 text-white font-bold mt-4" data-testid="btn-submit-inquiry">
-                  <Send className="w-4 h-4 mr-2" /> Send Inquiry
+                {form.formState.errors.root && (
+                  <p role="alert" className="text-sm text-destructive">
+                    {form.formState.errors.root.message} Your form details have been kept.
+                  </p>
+                )}
+                {emailDraft && (
+                  <p role="status" className="text-sm text-muted-foreground">
+                    An email draft has been requested, but your enquiry has not been sent.
+                    Review and send it in your email app. If it did not open,{" "}
+                    <a href={emailDraft} className="text-primary underline">open the email draft</a>
+                    {" "}or email info@scanengg.com directly. Your form details have been kept.
+                  </p>
+                )}
+                <Button type="submit" disabled={form.formState.isSubmitting} className="w-full rounded-none h-12 bg-primary hover:bg-primary/90 text-white font-bold mt-4" data-testid="btn-submit-inquiry">
+                  <Send className="w-4 h-4 mr-2" /> {form.formState.isSubmitting ? "Sending…" : "Send Inquiry"}
                 </Button>
               </form>
             </Form>

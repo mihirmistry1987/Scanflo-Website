@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import scanfloLogo from "@assets/Scanflo_Logo_1778997253423.png";
+import scanfloLogo from "@/assets/scanflo-logo.png";
 
 export default function Footer() {
   return (
