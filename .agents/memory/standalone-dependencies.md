@@ -14,3 +14,9 @@ Exported npm lockfiles must use externally accessible npm URLs while retaining i
 **Why:** Lockfiles generated inside Replit can contain an internal package-firewall host that GitHub runners and ordinary computers cannot reach.
 
 **How to apply:** Inspect registry hosts in generated export metadata. Normalize the exported metadata where needed; never bypass the managed registry/firewall for workspace package installations.
+
+Validate GitHub Pages routing against a static server that returns the real 404.html with HTTP 404 for unknown paths, not against Vite's automatic SPA fallback.
+
+**Why:** Development/preview rewrites can make clean deep links appear to work without ever exercising the GitHub Pages redirect and restoration scripts.
+
+**How to apply:** Check direct deep links and refreshes with query strings and hashes, verify the clean URL is restored before the app routes, and confirm unknown paths render the application's not-found screen without a redirect loop.
