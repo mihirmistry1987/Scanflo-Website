@@ -37,9 +37,9 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-accent/80">
               <li><Link href="/products/sa-series" className="hover:text-primary transition-colors">Uni-Directional Valves</Link></li>
               <li><Link href="/products/sb-series" className="hover:text-primary transition-colors">Bi-Directional Valves</Link></li>
-              <li><Link href="/products/pneumatic" className="hover:text-primary transition-colors">Pneumatic Actuated</Link></li>
-              <li><Link href="/products/electric" className="hover:text-primary transition-colors">Electric Actuated</Link></li>
-              <li><Link href="/products/gearbox" className="hover:text-primary transition-colors">Manual Operated</Link></li>
+              <li><Link href="/design/actuator-options" className="hover:text-primary transition-colors">Pneumatic Actuated</Link></li>
+              <li><Link href="/design/actuator-options" className="hover:text-primary transition-colors">Electric Actuated</Link></li>
+              <li><Link href="/design/actuator-options" className="hover:text-primary transition-colors">Manual Operated</Link></li>
             </ul>
           </div>
 
