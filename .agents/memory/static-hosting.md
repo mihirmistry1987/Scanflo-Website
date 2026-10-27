@@ -3,9 +3,9 @@ name: Scanflo static hosting requirements
 description: User's migration constraints and intended hosting model.
 ---
 
-Scanflo is intended for standalone GoDaddy Web Hosting with cPanel at www.knifegatevalveindia.com, replacing the earlier GitHub Pages hosting destination. Do not change the site's design, content, or brand styling as part of this migration.
+Scanflo's requested hosting package is for Hostinger Web Hosting at www.knifegatevalveindia.com. Do not change the site's design, content, or brand styling as part of hosting preparation.
 
-**Why:** The user wants to move hosting from Replit to GoDaddy and confirmed they have Web Hosting with cPanel; the existing requirement to preserve the site remains in effect.
+**Why:** The user asked for a package for hosting on Hostinger. This request does not authorize a live hosting or DNS cutover; the existing requirement to preserve the site remains in effect.
 
 **How to apply:** Keep the export self-contained and independent of the API server, database, workspace libraries, and required Replit build variables. Keep the live host and DNS untouched until the user explicitly asks to switch them.
 

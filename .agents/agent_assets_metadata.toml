@@ -67,3 +67,17 @@ mtime_ms = 1793122118874
 storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:c8cd0867-265e-442c-ae48-100187013823/535dafb2-7b86-4233-b2ff-308d49d72102/1cf7c83f-194a-4210-8360-b0a83c4e226b"
 storage_version_token = "1793122145588351"
 content_type = "application/octet-stream"
+
+[[outputs]]
+id = "bwpCg0bW6AkWJtSonHeA4"
+uri = "file://artifacts/scanflo-website/release/scanflo-hostinger.zip"
+type = "unspecified"
+title = "Scanflo — Hostinger Hosting Package"
+description = "Upload-ready website ZIP for Hostinger Web Hosting/hPanel. Includes .htaccess routing and README-HOSTINGER.txt. No Node.js, database, or Replit secrets required on the host."
+logical_id = "f8fc41de-db64-4b76-9045-1d2355d6bcd1"
+content_hash = "sha256:e901aa800c9fb89b0a455c35e1122d7ec688892f07f89550d2f367836cbf0fbd"
+size = 59198643
+mtime_ms = 1793122975536
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:c8cd0867-265e-442c-ae48-100187013823/f8fc41de-db64-4b76-9045-1d2355d6bcd1/866329d7-07e0-4ff6-82d7-adce186106e8"
+storage_version_token = "1793123012549475"
+content_type = "application/octet-stream"
