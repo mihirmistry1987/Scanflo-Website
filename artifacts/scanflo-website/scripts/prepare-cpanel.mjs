@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access, cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { access, chmod, cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -18,6 +18,21 @@ const profiles = {
   },
   hostinger: { guide: "HOSTINGER.md", readme: "README-HOSTINGER.txt" },
 };
+
+async function normalizePublicPermissions(directory) {
+  // ZIP extraction can preserve owner-only source modes. Shared-host Apache
+  // must be able to traverse directories and read every public static file.
+  await chmod(directory, 0o755);
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const filename = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      await normalizePublicPermissions(filename);
+    } else {
+      assert.ok(entry.isFile(), `Unsupported static output entry: ${filename}`);
+      await chmod(filename, 0o644);
+    }
+  }
+}
 
 export async function prepareCpanel(source, destination, provider = "godaddy") {
   const profile = profiles[provider];
@@ -49,6 +64,7 @@ export async function prepareCpanel(source, destination, provider = "godaddy") {
   await writeFile(index, html);
   await writeFile(path.join(destination, ".htaccess"), htaccess);
   await writeFile(path.join(destination, profile.readme), instructions);
+  await normalizePublicPermissions(destination);
 }
 
 if (

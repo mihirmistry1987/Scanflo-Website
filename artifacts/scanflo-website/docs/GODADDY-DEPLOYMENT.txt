@@ -58,6 +58,12 @@ index.html, hidden files are visible, and GoDaddy allows rewrite rules.
 Ask GoDaddy support to check AllowOverride/mod_rewrite if needed.
 Missing CSS/images: check for an extra extracted folder, missing assets,
 wrong document root, or an installation below a subfolder.
+403 Forbidden on an image: in cPanel File Manager, right-click the image,
+choose Change Permissions, and set 644 (owner read/write; group/others read).
+Public website directories should be 755. Never use 777.
+This package normalizes all public files to 644 and directories to 755;
+if overwriting an existing upload retains old permissions, correct them
+in File Manager. Apply changes only to this website's public static files.
 Old page displayed: check index.html placement, DNS, and browser/hosting caches.
 HTTPS warnings/redirect loops: verify the certificate first and remove
 conflicting old redirect rules; do not repeatedly add HTTPS redirects.

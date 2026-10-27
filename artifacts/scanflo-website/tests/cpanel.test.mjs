@@ -7,6 +7,7 @@ import {
   readFile,
   access,
   rm,
+  stat,
 } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -27,6 +28,13 @@ for (const provider of ["godaddy", "hostinger"]) {
         path.join(source, "assets/site.js"),
         "console.log('site');",
       );
+      await mkdir(path.join(source, "images/nested"), {
+        recursive: true,
+        mode: 0o700,
+      });
+      await writeFile(path.join(source, "images/nested/restricted.png"), "image fixture", {
+        mode: 0o600,
+      });
       for (const name of [
         "404.html",
         "CNAME",
@@ -75,6 +83,33 @@ for (const provider of ["godaddy", "hostinger"]) {
         provider === "godaddy"
           ? "GODADDY-DEPLOYMENT.txt"
           : "README-HOSTINGER.txt";
+      for (const name of ["", "assets", "images", "images/nested"]) {
+        assert.equal(
+          (await stat(path.join(output, name))).mode & 0o777,
+          0o755,
+          `Public directory must be traversable: ${name}`,
+        );
+      }
+      for (const name of ["index.html", ".htaccess", readme, "assets/site.js", "images/nested/restricted.png"]) {
+        assert.equal(
+          (await stat(path.join(output, name))).mode & 0o777,
+          0o644,
+          `Public file must be readable by shared-host Apache: ${name}`,
+        );
+      }
+      assert.equal(
+        await readFile(path.join(output, "images/nested/restricted.png"), "utf8"),
+        "image fixture",
+      );
+      assert.equal(
+        (await stat(path.join(source, "images/nested/restricted.png"))).mode & 0o777,
+        0o600,
+        "Packaging must not change source permissions",
+      );
+      assert.equal(
+        (await stat(path.join(source, "images/nested"))).mode & 0o777,
+        0o700,
+      );
       assert.match(
         await readFile(path.join(output, readme), "utf8"),
         /Preserve MX/,
