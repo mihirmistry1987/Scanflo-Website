@@ -12,7 +12,10 @@ const githubOnly = [
   "spa-restore.js",
 ];
 const profiles = {
-  godaddy: { guide: "GODADDY.md", readme: "README-GODADDY.txt" },
+  godaddy: {
+    guide: "GODADDY-DEPLOYMENT.txt",
+    readme: "GODADDY-DEPLOYMENT.txt",
+  },
   hostinger: { guide: "HOSTINGER.md", readme: "README-HOSTINGER.txt" },
 };
 

@@ -16,7 +16,7 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-background min-h-screen font-sans"
+      className="bg-background min-h-screen font-sans overflow-x-clip"
     >
       <Navbar />
       <main>

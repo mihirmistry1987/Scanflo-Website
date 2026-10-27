@@ -110,6 +110,14 @@ export default function Contact() {
                 src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119330.13783701657!2d72.82522774900762!3d20.372063073747146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0ce29d20c58e7%3A0xc66085a6dbd4c4f0!2sVapi%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin`}
               ></iframe>
             </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=20.372063073747146%2C72.82522774900762"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex text-sm font-medium text-primary underline underline-offset-4"
+            >
+              Open location in Google Maps
+            </a>
           </motion.div>
 
           <motion.div

@@ -1,0 +1,85 @@
+SCANFLO — GODADDY STATIC WEBSITE DEPLOYMENT
+
+PACKAGE: godaddy-static-website.zip
+For GoDaddy Web Hosting with cPanel, not Website Builder.
+This is a prebuilt React/Vite website. GoDaddy needs no Node.js, database,
+server startup command, Replit hosting, or secret environment variables.
+Install at your domain root, not in a /scanflo/ subfolder.
+
+1. LOG IN AND FIND THE WEBSITE DIRECTORY
+Sign in at https://account.godaddy.com/products .
+Under Web Hosting, select Manage for your cPanel hosting account.
+Open cPanel Admin / File Manager (some dashboards show File Manager directly).
+Check the domain's Document Root in cPanel's Domains screen.
+For the primary domain it is normally public_html; addon domains may differ.
+Only use the document root belonging to your intended domain.
+
+2. BACK UP BEFORE REPLACING ANYTHING
+Download a backup of that domain's existing files, including hidden .htaccess.
+Save its current website DNS settings for rollback. Keep Replit hosting live.
+Do not delete mail folders, other domains' files, or .well-known.
+Do not merge this website into an unrelated WordPress installation.
+
+3. UPLOAD AND EXTRACT
+In File Manager, enable Show Hidden Files (dotfiles).
+Open the correct document root, upload godaddy-static-website.zip, and Extract.
+Confirm index.html, .htaccess, assets/, images/, and fonts/ are directly inside
+the document root. There must NOT be an extra project folder around them.
+The supplied .htaccess replaces this domain's SPA routing rules; back up any
+old version first. Do not combine unrelated WordPress redirects with it.
+After extraction, remove the uploaded ZIP from the server.
+This instruction file can also be removed from the server after reading.
+
+4. VERIFY THE NEW COPY
+Use GoDaddy's domain preview if available, or ask support to help preview
+your domain on the new hosting IP before changing public DNS.
+A local hosts-file override is another option; remove it after testing.
+Use a domain-root preview, not a /~username or subdirectory preview.
+Check the homepage, all menus, product pages, images, and desktop/mobile views.
+Open /products and /contact directly, then refresh them.
+Test email/phone links and the enquiry form as described below.
+Do not test by opening index.html from your computer's file browser.
+
+5. DNS AND HTTPS — ONLY AFTER THE COPY IS READY
+Point website records to the actual GoDaddy hosting IP when ready to switch.
+Review both root and www records and any old website IPv6 (AAAA) records.
+Preserve MX and email-related TXT records (SPF, DKIM, DMARC), verification
+records, and unrelated subdomains. Do not change nameservers unnecessarily.
+Confirm a valid SSL certificate covers both your root domain and www.
+Only then enable Force HTTPS through GoDaddy/cPanel if available.
+The supplied .htaccess deliberately does not force HTTPS or www prematurely.
+After DNS propagates, check from another device/network without local
+hosts-file overrides. Stop old Replit hosting only after verification.
+Keep the original source and backup; do not delete the source project.
+
+6. COMMON PROBLEMS
+Internal pages show 404: confirm the supplied .htaccess was extracted beside
+index.html, hidden files are visible, and GoDaddy allows rewrite rules.
+Ask GoDaddy support to check AllowOverride/mod_rewrite if needed.
+Missing CSS/images: check for an extra extracted folder, missing assets,
+wrong document root, or an installation below a subfolder.
+Old page displayed: check index.html placement, DNS, and browser/hosting caches.
+HTTPS warnings/redirect loops: verify the certificate first and remove
+conflicting old redirect rules; do not repeatedly add HTTPS redirects.
+If the cutover fails, restore the old website DNS while resolving it.
+
+7. EXISTING FUNCTIONALITY AND EXTERNAL SERVICES
+The enquiry service setting is currently blank. Submitting opens an email
+draft to info@scanengg.com; the visitor must send it. No server sends it and
+no database stores it. Automatic delivery requires a configured Formspree
+public endpoint in the source, then a rebuild. Never put a private key in it.
+The Google Maps embed requires access to Google. No Maps secret is configured.
+Privacy Policy and Terms links currently remain placeholders, as in the source.
+No live catalogue/manual/CAD download links were found; the unused download
+component has no files wired up. Migration does not create these documents.
+These are existing limitations, not features removed for static hosting.
+
+8. FUTURE UPDATES
+Keep the editable source separately; the upload ZIP is only the built site.
+On a computer with the standalone source and Node.js 22.12 or newer:
+    npm ci
+    npm test
+    npm run prepare:cpanel
+ZIP the contents of release/scanflo-godaddy (including .htaccess), not its
+enclosing folder. Back up the live site and upload the rebuilt files again.
+No build commands run on GoDaddy. cPanel is not a visual React page editor.

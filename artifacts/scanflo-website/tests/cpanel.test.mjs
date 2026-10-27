@@ -72,7 +72,9 @@ for (const provider of ["godaddy", "hostinger"]) {
         "No premature hostname/HTTPS redirects",
       );
       const readme =
-        provider === "godaddy" ? "README-GODADDY.txt" : "README-HOSTINGER.txt";
+        provider === "godaddy"
+          ? "GODADDY-DEPLOYMENT.txt"
+          : "README-HOSTINGER.txt";
       assert.match(
         await readFile(path.join(output, readme), "utf8"),
         /Preserve MX/,
