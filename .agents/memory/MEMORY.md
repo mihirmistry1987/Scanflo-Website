@@ -1,3 +1,3 @@
-- [Static hosting requirements](static-hosting.md) — Preserve Scanflo's design while keeping a standalone GitHub Pages export independent of Replit and the backend.
+- [Static hosting requirements](static-hosting.md) — GoDaddy is now the hosting destination; preserve Scanflo's design and independence from Replit and the backend.
 - [Standalone dependency checks](standalone-dependencies.md) — Test outside the monorepo; workspace success can hide registry portability and dependency-version failures.
 - [Git panel authorization](git-panel-authorization.md) — Successful command-line Git checks do not prove the Git panel is authorized or that deployment succeeded.

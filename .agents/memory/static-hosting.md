@@ -3,9 +3,9 @@ name: Scanflo static hosting requirements
 description: User's migration constraints and intended hosting model.
 ---
 
-Scanflo is intended for free standalone GitHub Pages hosting at www.knifegatevalveindia.com. Do not change the site's design, content, or brand styling as part of this migration.
+Scanflo is intended for standalone GoDaddy hosting at www.knifegatevalveindia.com, replacing the earlier GitHub Pages hosting destination. Do not change the site's design, content, or brand styling as part of this migration.
 
-**Why:** The user wants to stop paying for Replit hosting without redesigning the site.
+**Why:** The user wants to move hosting from Replit to GoDaddy; the existing requirement to preserve the site remains in effect.
 
 **How to apply:** Keep the export self-contained and independent of the API server, database, workspace libraries, and required Replit build variables. Keep the live host and DNS untouched until the user explicitly asks to switch them.
 
