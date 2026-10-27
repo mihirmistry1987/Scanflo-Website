@@ -9,7 +9,7 @@ const destination = path.join(root, "release", "scanflo-website");
 await rm(destination, { recursive: true, force: true });
 await mkdir(destination, { recursive: true });
 for (const name of [
-  "src", "public", "scripts", "tests", ".github", ".gitignore", "README.md",
+  "src", "public", "scripts", "tests", "deploy", "docs", ".github", ".gitignore", "README.md",
   "package.json", "package-lock.json", "tsconfig.json", "vite.config.ts", "index.html", "components.json",
 ]) {
   await cp(path.join(root, name), path.join(destination, name), { recursive: true });

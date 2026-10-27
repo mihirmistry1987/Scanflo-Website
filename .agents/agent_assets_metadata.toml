@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "rE2gr659FYfmlIMasUPyM"
@@ -54,3 +53,17 @@ id = "2GQMn37H1DAR9nYpb_vlG"
 uri = "file://artifacts/scanflo-website/public/images/sa-series-product.png"
 type = "image"
 title = "uni-directional knife gate valve"
+
+[[outputs]]
+id = "CMqLXIteSWgeAL-Jh09gZ"
+uri = "file://artifacts/scanflo-website/release/scanflo-godaddy-cpanel.zip"
+type = "unspecified"
+title = "Scanflo — GoDaddy cPanel Upload"
+description = "Prebuilt website with Apache routing and upload instructions. Extract directly into this domain’s document root; no Node.js, database, or Replit secrets required."
+logical_id = "535dafb2-7b86-4233-b2ff-308d49d72102"
+content_hash = "sha256:132fc8c86b5031b2110574be43b582dbb7053e1614b434e591b225ae5246df7b"
+size = 59199021
+mtime_ms = 1793122118874
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:c8cd0867-265e-442c-ae48-100187013823/535dafb2-7b86-4233-b2ff-308d49d72102/1cf7c83f-194a-4210-8360-b0a83c4e226b"
+storage_version_token = "1793122145588351"
+content_type = "application/octet-stream"

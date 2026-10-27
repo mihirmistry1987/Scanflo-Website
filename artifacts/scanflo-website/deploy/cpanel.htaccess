@@ -1,0 +1,20 @@
+# Install in this domain's document root, alongside index.html.
+# HTTPS and canonical-host redirects should be configured only after DNS and SSL work.
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+
+RewriteEngine On
+RewriteBase /
+
+# Serve real files and directories normally.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Missing static files must return 404, not HTML masquerading as JavaScript/images.
+RewriteRule ^(?:assets|images|fonts)(?:/|$) - [L]
+
+# Open clean application routes directly, retaining the original query string.
+# Requests containing a filename extension remain ordinary Apache 404s.
+RewriteCond %{REQUEST_URI} !\.[^/]+$
+RewriteRule . /index.html [L]

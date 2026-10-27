@@ -20,6 +20,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "node --test tests/*.test.mjs",
     "verify:build": "node scripts/verify-build.mjs",
+    "prepare:cpanel": "npm run build && npm run verify:build && node scripts/prepare-cpanel.mjs",
     "export": "node scripts/export-site.mjs"
   },
   "devDependencies": {
